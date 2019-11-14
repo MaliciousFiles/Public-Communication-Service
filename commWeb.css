@@ -1,0 +1,122 @@
+body {
+	margin: 0;
+	background: rgb(225, 225, 225);
+	overflow-x: hidden;
+}
+
+.center {
+	text-align: center;
+}
+
+/*--------------------------------------*/
+
+.input {
+	white-space: nowrap;
+	background-image: linear-gradient(rgb(249, 106, 0), orange);
+	top: 15%;
+	left: 35.5%;
+	position: fixed;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+.input input {
+	font-size: 17px;
+	width: 300px;
+}
+
+.input td {
+	height: 15px;
+	padding-bottom: 2px;
+}
+
+.input button {
+	cursor: pointer;
+	box-shadow: 0 4px rgb(150, 150, 150);
+	text-align: center;
+	border-radius: 10%;
+	background-color: grey;
+	color: white;
+	border: none;
+	font-size: 17px;
+}
+
+.input button:active {
+	box-shadow: 0 0px #000;
+	transform: translateY(4px);
+}
+
+.input td#button {
+	padding-top: 5px;
+}
+
+.input label {
+    font-size: 20px;
+}
+
+.input td.label {
+    padding-top: 10px;
+}
+
+.input td label.error {
+	color: red;
+}
+
+/*--------------------------------------*/
+
+ul.navBar {
+	position: absolute;
+	list-style-type: none;
+	margin: 0;
+	background-color: grey;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50px;
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	padding-left: 5px;
+}
+
+.navBar li a.notFilledIn {
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	height: 50px;
+	width: 100px;
+	line-height: 50px;
+	display: block;
+	text-align: center;
+	margin-right: 5px;
+	float: left;
+	background: grey;
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+}
+
+.navBar li a.filledIn {
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	background: rgb(249, 106, 0);
+	height: 50px;
+	width: 100px;
+	line-height: 50px;
+	display: block;
+	text-align: center;
+	margin-right: 5px;
+	float: left;
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+}
+
+.navBar li a.notFilledIn:hover {
+	background: rgb(249, 106, 0);
+}
+
+img.logo {
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-right: 5px
+}
