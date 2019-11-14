@@ -1,4 +1,4 @@
-const fs=require('fs')
+const fs=require('fs');
 function checkForEntry() {
 	fs.readFile('users.txt', (err, data) => {
 		if (err) throw err;
