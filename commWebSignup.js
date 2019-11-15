@@ -3,7 +3,7 @@ function checkForEntry() {
 	fs.readFile('users.txt', (err, data) => {
 		if (err) throw err;
 		
-		console.log(data.toString());
+		alert(data.toString());
 	});
 	var rect=(document.getElementById('input').getBoundingClientRect());
 	if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
