@@ -61,11 +61,11 @@ function checkForEntry() {
 	//if statements
 	var emailField = false
 	if (document.getElementById('email').value==null) {
-		document.getElementById('emailField').innerHTML = "The email field can't be blank!"
+		document.getElementById('email').innerHTML = "The email field can't be blank!"
 	} else if (validateEmail(document.getElementById('email'.value)==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
 	} else if (emailCheck!=null) {
-		document.getElementById('emailField').innerHTML = "That email is already registered!"
+		document.getElementById('email').innerHTML = "That email is already registered!"
 	} else {
 		document.getElementById('emailError').innerHTML = ""
 		emailField = True
