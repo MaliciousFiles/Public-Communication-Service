@@ -11,14 +11,14 @@ function checkForEntry() {
 		console.log(snapshot.val());
 	});
 	//if statements
-	var userField = False
+	var userField = false
 	if (document.getElementById('username').value==null) {
 		document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
 	} else if (userCheck!=null) {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
-		userField = True
+		userField = true
 	};
 	//start checks for first name field
 	//look for first name
@@ -27,14 +27,14 @@ function checkForEntry() {
 		console.log(snapshot.val());
 	});
 	//if statements
-	var firstNameField = False
+	var firstNameField = false
 	if (document.getElementById('firstName').value==null) {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
 	} else if (firtNameCheck!=null) {
 		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
 	} else {
 		document.getElementById('firstNameError').innerHTML = ""
-		firstNameField = True
+		firstNameField = true
 	};
 	//start checks for last name field
 	//look for last name
@@ -43,14 +43,14 @@ function checkForEntry() {
 		console.log(snapshot.val());
 	});
 	//if statements
-	var lastNameField = False
+	var lastNameField = false
 	if (document.getElementById('lastName').value==null) {
 		document.getElementById('lastNameError').innerHTML = "The last name field can't be blank!"
 	} else if (lastNameCheck!=null) {
 		document.getElementById('lastNameError').innerHTML = "That last name is already registered!"
 	} else {
 		document.getElementById('lastNameError').innerHTML = ""
-		lastNameField = True
+		lastNameField = true
 	};
 	//start checks for email field
 	//look for first name
@@ -59,7 +59,7 @@ function checkForEntry() {
 		console.log(snapshot.val());
 	});
 	//if statements
-	var emailField = False
+	var emailField = false
 	if (document.getElementById('email').value==null) {
 		document.getElementById('emailField').innerHTML = "The email field can't be blank!"
 	} else if (validateEmail(document.getElementById('email'.value)==false)) {
@@ -72,12 +72,12 @@ function checkForEntry() {
 	};
 	//start checks for password field
 	//if statements
-	var passwordField = False
+	var passwordField = false
 	if (document.getElementById('password').value==null) {
 		document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
 	} else {
 		document.getElementById('passwordError').innerHTML = ""
-		passwordField = True
+		passwordField = true
 	};
 	//start checks for password check field
 	//if statements
