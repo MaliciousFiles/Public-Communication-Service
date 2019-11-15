@@ -1,14 +1,14 @@
 function checkForEntry() {
 	function validateEmail(email) 
 	{
-		var re = "\S+@\S+\.\S+/";
+		var re = /\S+@\S+\.\S+/;
    		return re.test(email);
 	}
 	//Start checks for username field
 	//look for username
 	var userCheck = firebase.database().ref('/'+document.getElementById('username').value);
 	userCheck.on("value", function(snapshot) {
-		console.log(snapshot.val());
+		userCheck = snapshot.val();
 	});
 	//if statements
 	var userField = false
@@ -24,7 +24,7 @@ function checkForEntry() {
 	//look for first name
 	var firstNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"first name");
 	firstNameCheck.on("value", function(snapshot) {
-		console.log(snapshot.val());
+		firstNameCheck = snapshot.val();
 	});
 	//if statements
 	var firstNameField = false
@@ -40,7 +40,7 @@ function checkForEntry() {
 	//look for last name
 	var lastNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"/last name");
 	lastNameCheck.on("value", function(snapshot) {
-		console.log(snapshot.val());
+		lastNameCheck = snapshot.val();
 	});
 	//if statements
 	var lastNameField = false
@@ -56,19 +56,19 @@ function checkForEntry() {
 	//look for email name
 	var emailCheck = firebase.database().ref('/'+document.getElementById('username').value+'/email');
 	emailCheck.on("value", function(snapshot) {
-		console.log(snapshot.val());
+		emailCheck = snapshot.val();
 	});
 	//if statements
 	var emailField = false
 	if (document.getElementById('email').value=="") {
 		document.getElementById('emailError').innerHTML = "The email field can't be blank!"
-	} else if (validateEmail(document.getElementById('email'.value)==false)) {
+	} else if (validateEmail(document.getElementById('email').value==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
 	} else if (emailCheck!=null) {
-		document.getElementById('email').innerHTML = "That email is already registered!"
+		document.getElementById('emailError').innerHTML = "That email is already registered!"
 	} else {
 		document.getElementById('emailError').innerHTML = ""
-		emailField = True
+		emailField = true
 	};
 	//start checks for password field
 	//if statements
