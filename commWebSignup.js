@@ -1,7 +1,7 @@
 function checkForEntry() {
 	function validateEmail(email) 
 	{
-		var re = /\S+@\S+\.\S+/;
+		var re = "\S+@\S+\.\S+/";
    		return re.test(email);
 	}
 	//Start checks for username field
@@ -22,7 +22,7 @@ function checkForEntry() {
 	};
 	//start checks for first name field
 	//look for first name
-	var firstNameCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('firstName').value);
+	var firstNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"first name");
 	firstNameCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
@@ -38,7 +38,7 @@ function checkForEntry() {
 	};
 	//start checks for last name field
 	//look for last name
-	var lastNameCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('lastName').value);
+	var lastNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"/last name");
 	lastNameCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
@@ -53,15 +53,15 @@ function checkForEntry() {
 		lastNameField = true
 	};
 	//start checks for email field
-	//look for first name
-	var emailCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('email').value);
+	//look for email name
+	var emailCheck = firebase.database().ref('/'+document.getElementById('username').value+'/email');
 	emailCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
 	//if statements
 	var emailField = false
 	if (document.getElementById('email').value=="") {
-		document.getElementById('email').innerHTML = "The email field can't be blank!"
+		document.getElementById('emailError').innerHTML = "The email field can't be blank!"
 	} else if (validateEmail(document.getElementById('email'.value)==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
 	} else if (emailCheck!=null) {
@@ -81,7 +81,9 @@ function checkForEntry() {
 	};
 	//start checks for password check field
 	//if statements
-	if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
+	if (document.getElementById('passwordCheck').value=="") {
+		document.getElementById('passwordCheckError').innerHTML = "The password check field can't be blank"
+	} else if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
 		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
 	} else {
 		document.getElementById('passwordCheckError').innerHTML = ""
