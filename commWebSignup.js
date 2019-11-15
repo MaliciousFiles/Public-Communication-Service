@@ -30,7 +30,7 @@ function checkForEntry() {
 	var firstNameField = false
 	if (document.getElementById('firstName').value==null) {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
-	} else if (firtNameCheck!=null) {
+	} else if (firstNameCheck!=null) {
 		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
 	} else {
 		document.getElementById('firstNameError').innerHTML = ""
