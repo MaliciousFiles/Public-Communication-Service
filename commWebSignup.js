@@ -1,8 +1,8 @@
 function checkForEntry() {
-	alert(firebase.database().ref('/' + document.getElementById('username').value).once('value').then(function(snapshot) {
-        var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-        // ...
-    }));
+	var ref = firebase.database().ref('/'+document.getElementById('username').value);
+    ref.on("value", function(snapshot) {
+        console.log(snapshot.val());
+    });
 	if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
 		document.getElementById('passwordNotSameError').innerHTML = "Passwords don't match!"
 	} else {
