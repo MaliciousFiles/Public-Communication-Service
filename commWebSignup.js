@@ -75,7 +75,6 @@ function checkForEntry() {
 	var passwordField = False
 	if (document.getElementById('password').value==null) {
 		document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
-	}
 	} else {
 		document.getElementById('passwordError').innerHTML = ""
 		passwordField = True
