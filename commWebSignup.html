@@ -4,10 +4,6 @@
 		<title>Public Comm Service | Sign Up</title>
 		<link rel="stylesheet" href=./commWeb.css>
 		<link rel="shortcut icon" href="./commWebLogo.png">
-		<script src=./commWebSignup.js></script>
-		<script src=./fs.js></script>
-	</head>
-	<body>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 
@@ -31,6 +27,20 @@
 		  firebase.initializeApp(firebaseConfig);
 		  firebase.analytics();
 		</script>
+		<script>
+			const firebaseConfig = {
+			  apiKey: "AIzaSyA9xW50xSHA5QrL7ot3i8eX1FXcdxyEKxE",
+			  authDomain: "public-communication-service.firebaseapp.com",
+			  databaseURL: "https://public-communication-service.firebaseio.com",
+			  projectId: "public-communication-service",
+			  storageBucket: "public-communication-service.appspot.com",
+			  messagingSenderId: "465965669190",
+			  appId: "1:465965669190:web:addda9e3523c2c6dba2347",
+			  measurementId: "G-0LLEX8LB45"
+			};</script>
+		<script src=./commWebSignup.js></script>
+	</head>
+	<body>
 		<ul class="navBar">
 			<li><a href=./index.html class="notFilledIn">Home</a></li>
 			<li><a href=./commWebLogin.html class="notFilledIn">Log In</a></li>
