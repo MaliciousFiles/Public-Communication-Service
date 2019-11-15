@@ -11,6 +11,10 @@
 		     https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
+		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
 		<script>
 		  // Your web app's Firebase configuration
 		  const firebaseConfig = {
@@ -26,6 +30,9 @@
 		  // Initialize Firebase
 		  firebase.initializeApp(firebaseConfig);
 		  firebase.analytics();
+		  // Sign in
+		  const auth = firebase.auth();
+		  auth.SignInWithEmailAndPassword('mtroalson@gmail.com', 'Tater2007Google')
 		</script>
 		<script src=./commWebSignup.js></script>
 	</head>
