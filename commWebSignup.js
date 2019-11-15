@@ -1,4 +1,5 @@
-import { fs } from './fs.js'
+var file=fopen('./fs.js', 0)
+var str=fread(file, flength(file))
 function checkForEntry() {
 	fs.readFile('users.txt', (err, data) => {
 		if (err) throw err;
