@@ -7,7 +7,7 @@ function checkForEntry() {
 	//Start checks for username field
 	//look for username
 	var userCheck = firebase.database().ref('/'+document.getElementById('username').value);
-	ref.on("value", function(snapshot) {
+	userCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
 	//if statements
@@ -23,7 +23,7 @@ function checkForEntry() {
 	//start checks for first name field
 	//look for first name
 	var firstNameCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('firstName').value);
-	ref.on("value", function(snapshot) {
+	firstNameCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
 	//if statements
@@ -39,7 +39,7 @@ function checkForEntry() {
 	//start checks for last name field
 	//look for last name
 	var lastNameCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('lastName').value);
-	ref.on("value", function(snapshot) {
+	lastNameCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
 	//if statements
@@ -55,7 +55,7 @@ function checkForEntry() {
 	//start checks for email field
 	//look for first name
 	var emailCheck = firebase.database().ref('/'+document.getElementById('username').value+document.getElementById('email').value);
-	ref.on("value", function(snapshot) {
+	emailCheck.on("value", function(snapshot) {
 		console.log(snapshot.val());
 	});
 	//if statements
