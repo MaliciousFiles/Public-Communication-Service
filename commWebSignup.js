@@ -12,7 +12,7 @@ function checkForEntry() {
 	});
 	//if statements
 	var userField = false
-	if (document.getElementById('username').value==null) {
+	if (document.getElementById('username').value=="") {
 		document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
 	} else if (userCheck!=null) {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
@@ -28,7 +28,7 @@ function checkForEntry() {
 	});
 	//if statements
 	var firstNameField = false
-	if (document.getElementById('firstName').value==null) {
+	if (document.getElementById('firstName').value=="") {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
 	} else if (firstNameCheck!=null) {
 		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
@@ -44,7 +44,7 @@ function checkForEntry() {
 	});
 	//if statements
 	var lastNameField = false
-	if (document.getElementById('lastName').value==null) {
+	if (document.getElementById('lastName').value=="") {
 		document.getElementById('lastNameError').innerHTML = "The last name field can't be blank!"
 	} else if (lastNameCheck!=null) {
 		document.getElementById('lastNameError').innerHTML = "That last name is already registered!"
@@ -60,7 +60,7 @@ function checkForEntry() {
 	});
 	//if statements
 	var emailField = false
-	if (document.getElementById('email').value==null) {
+	if (document.getElementById('email').value=="") {
 		document.getElementById('email').innerHTML = "The email field can't be blank!"
 	} else if (validateEmail(document.getElementById('email'.value)==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
@@ -73,7 +73,7 @@ function checkForEntry() {
 	//start checks for password field
 	//if statements
 	var passwordField = false
-	if (document.getElementById('password').value==null) {
+	if (document.getElementById('password').value=="") {
 		document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
 	} else {
 		document.getElementById('passwordError').innerHTML = ""
