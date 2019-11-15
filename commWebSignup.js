@@ -1,3 +1,4 @@
+import { fs } from './fs.js'
 function checkForEntry() {
 	fs.readFile('users.txt', (err, data) => {
 		if (err) throw err;

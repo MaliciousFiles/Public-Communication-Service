@@ -59,4 +59,6 @@ var fs = {
   writeText: (filename, text, cb, err) => {
     fs.writeContent(filename, text, "text/plain", cb, err);
   }
-}
+};
+
+export { fs };
