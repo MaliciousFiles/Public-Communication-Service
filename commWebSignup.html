@@ -9,6 +9,29 @@
 		<script src=./fs.js></script>
 	</head>
 	<body>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+		    apiKey: "AIzaSyA9xW50xSHA5QrL7ot3i8eX1FXcdxyEKxE",
+		    authDomain: "public-communication-service.firebaseapp.com",
+		    databaseURL: "https://public-communication-service.firebaseio.com",
+		    projectId: "public-communication-service",
+		    storageBucket: "public-communication-service.appspot.com",
+		    messagingSenderId: "465965669190",
+		    appId: "1:465965669190:web:addda9e3523c2c6dba2347",
+		    measurementId: "G-0LLEX8LB45"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		  firebase.analytics();
+		</script>
 		<ul class="navBar">
 			<li><a href=./index.html class="notFilledIn">Home</a></li>
 			<li><a href=./commWebLogin.html class="notFilledIn">Log In</a></li>
@@ -62,28 +85,5 @@
 				</tr>
 			</table>
 		</div>
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
-
-		<!-- TODO: Add SDKs for Firebase products that you want to use
-		     https://firebase.google.com/docs/web/setup#available-libraries -->
-		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
-
-		<script>
-		  // Your web app's Firebase configuration
-		  var firebaseConfig = {
-		    apiKey: "AIzaSyA9xW50xSHA5QrL7ot3i8eX1FXcdxyEKxE",
-		    authDomain: "public-communication-service.firebaseapp.com",
-		    databaseURL: "https://public-communication-service.firebaseio.com",
-		    projectId: "public-communication-service",
-		    storageBucket: "public-communication-service.appspot.com",
-		    messagingSenderId: "465965669190",
-		    appId: "1:465965669190:web:addda9e3523c2c6dba2347",
-		    measurementId: "G-0LLEX8LB45"
-		  };
-		  // Initialize Firebase
-		  firebase.initializeApp(firebaseConfig);
-		  firebase.analytics();
-		</script>
 	</body>
 </html>
