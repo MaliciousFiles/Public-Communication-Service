@@ -21,13 +21,12 @@ body {
 }
 
 .input input {
-	font-size: 17px;
+	font-size: 13px;
 	width: 300px;
 }
 
 .input td {
 	height: 15px;
-	padding-bottom: 2px;
 }
 
 .input button {
@@ -46,16 +45,8 @@ body {
 	transform: translateY(4px);
 }
 
-.input td#button {
-	padding-top: 5px;
-}
-
 .input label {
-    font-size: 15px;
-}
-
-.input td.label {
-    padding-top: 10px;
+    font-size: 17px;
 }
 
 .input td label.error {
