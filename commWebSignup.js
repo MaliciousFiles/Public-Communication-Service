@@ -4,9 +4,18 @@ function checkForEntry() {
 		var re = /\S+@\S+\.\S+/;
    		return re.test(email);
 	}
+	function checkEntry(dict, entry) {
+		Object.keys(dict).forEach(function(key) {
+			if (dict[key] == entry) {
+				return true;
+			} else {
+				return false;
+			};
+		});
+	}
 	//Start checks for username field
 	//look for username
-	var userCheck = firebase.database().ref('/'+document.getElementById('username').value);
+	var userCheck = firebase.database().ref('/usernames');
 	userCheck.on("value", function(snapshot) {
 		userCheck = snapshot.val();
 	});
@@ -14,7 +23,7 @@ function checkForEntry() {
 	var userField = false
 	if (document.getElementById('username').value=="") {
 		document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
-	} else if (userCheck!=null) {
+	} else if (ucheckEntry(userCheck, document.getElementById('username').value)) {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
@@ -22,7 +31,7 @@ function checkForEntry() {
 	};
 	//start checks for first name field
 	//look for first name
-	var firstNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"first name");
+	var firstNameCheck = firebase.database().ref('/first names');
 	firstNameCheck.on("value", function(snapshot) {
 		firstNameCheck = snapshot.val();
 	});
@@ -30,7 +39,7 @@ function checkForEntry() {
 	var firstNameField = false
 	if (document.getElementById('firstName').value=="") {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
-	} else if (firstNameCheck!=null) {
+	} else if (checkEntry(firstNameCheck, document.getElementById('firstName').value)) {
 		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
 	} else {
 		document.getElementById('firstNameError').innerHTML = ""
@@ -38,7 +47,7 @@ function checkForEntry() {
 	};
 	//start checks for last name field
 	//look for last name
-	var lastNameCheck = firebase.database().ref('/'+document.getElementById('username').value+"/last name");
+	var lastNameCheck = firebase.database().ref('/last names');
 	lastNameCheck.on("value", function(snapshot) {
 		lastNameCheck = snapshot.val();
 	});
@@ -46,7 +55,7 @@ function checkForEntry() {
 	var lastNameField = false
 	if (document.getElementById('lastName').value=="") {
 		document.getElementById('lastNameError').innerHTML = "The last name field can't be blank!"
-	} else if (lastNameCheck!=null) {
+	} else if (checkEntry(lastNameCheck, document.getElementById('lastName').value)) {
 		document.getElementById('lastNameError').innerHTML = "That last name is already registered!"
 	} else {
 		document.getElementById('lastNameError').innerHTML = ""
@@ -54,7 +63,7 @@ function checkForEntry() {
 	};
 	//start checks for email field
 	//look for email name
-	var emailCheck = firebase.database().ref('/'+document.getElementById('username').value+'/email');
+	var emailCheck = firebase.database().ref('/emails');
 	emailCheck.on("value", function(snapshot) {
 		emailCheck = snapshot.val();
 	});
@@ -64,7 +73,7 @@ function checkForEntry() {
 		document.getElementById('emailError').innerHTML = "The email field can't be blank!"
 	} else if ((validateEmail(document.getElementById('email').value)==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
-	} else if (emailCheck!=null) {
+	} else if (checkEntry(emailCheck, document.getElementById('email').value)) {
 		document.getElementById('emailError').innerHTML = "That email is already registered!"
 	} else {
 		document.getElementById('emailError').innerHTML = ""
