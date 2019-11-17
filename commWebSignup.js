@@ -7,9 +7,9 @@ function checkForEntry() {
 	function checkEntry(dict, entry) {
 		Object.keys(dict).forEach(function(key) {
 			if (dict[key] == entry) {
-				return true;
+				return "true";
 			} else {
-				return false;
+				return "false";
 			};
 		});
 	}
@@ -23,7 +23,7 @@ function checkForEntry() {
 	var userField = false
 	if (document.getElementById('username').value=="") {
 		document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
-	} else if (ucheckEntry(userCheck, document.getElementById('username').value)) {
+	} else if (checkEntry(userCheck, document.getElementById('username').value)) {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
