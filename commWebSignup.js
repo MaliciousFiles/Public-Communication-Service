@@ -134,5 +134,6 @@ function checkForEntry() {
 		writeToDatabase('/last names', username, lastName);
 		writeToDatabase('/emails',username,email);
 		writeToDatabase('/passwords',username,password);
+		writeToDatabase('/profile images',username,'./newUserImg.png');
 	};
 }
