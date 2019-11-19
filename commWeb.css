@@ -9,7 +9,7 @@ body {
 }
 
 .bg {
-	background-image: url(./homeBackground.jpg);
+	background-image: url(homeBackground.jpg);
 	height: 100%;
 	background-position: center;
   	background-repeat: no-repeat;
