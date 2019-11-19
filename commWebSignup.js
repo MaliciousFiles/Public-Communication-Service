@@ -109,4 +109,8 @@ function checkForEntry() {
 	} else {
 		document.getElementById('passwordCheckError').innerHTML = ""
 	};
+	//Check for no errors (write to database)
+	if (passwordField==true || emailField==true || lastNameField==true || firstNameField==true || userField==true) {
+		alert("looks good")
+	}
 };
