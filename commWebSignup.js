@@ -10,9 +10,7 @@ function checkForEntry() {
                 return hash; 
             } 
 	function writeToDatabase(path,username,value) {
-		firebase.database().ref(path).set({
-		    username: value
-		  });
+		firebase.database().ref(path+'/'+username).set(value);
 	}
 	function validateEmail(email) 
 	{
@@ -117,24 +115,24 @@ function checkForEntry() {
 	} else if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
 		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
 	} else {
-		document.getElementById('passwordCheckError').innerHTML = ""
+		document.getElementById('passwordCheckError').innerHTML = "";
 	};
 	if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
 		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
 	} else {
-		document.getElementById('passwordCheckError').innerHTML = ""
+		document.getElementById('passwordCheckError').innerHTML = "";
 	};
 	//Check for no errors (write to database)
 	if (passwordField==true && emailField==true && lastNameField==true && firstNameField==true && userField==true) {
-		var username=document.getElementById('username').value
-		var firstName=document.getElementById('firstName').value
-		var lastName=document.getElementById('lastName').value
-		var email=document.getElementById('email').value
-		var password=hash(document.getElementById('password').value)
-		writeToDatabase('/usernames','username',username)
-		writeToDatabase('/first names', username,firstName)
-		writeToDatabase('/last names', username, lastName)
-		writeToDatabase('/emails',username,email)
-		writeToDatabase('/passwords',username,password)
+		var username=document.getElementById('username').value;
+		var firstName=document.getElementById('firstName').value;
+		var lastName=document.getElementById('lastName').value;
+		var email=document.getElementById('email').value;
+		var password=hash(document.getElementById('password').value);
+		writeToDatabase('/usernames',username,username);
+		writeToDatabase('/first names', username,firstName);
+		writeToDatabase('/last names', username, lastName);
+		writeToDatabase('/emails',username,email);
+		writeToDatabase('/passwords',username,password);
 	};
-};
+}
