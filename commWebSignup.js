@@ -110,7 +110,6 @@ function checkForEntry() {
 		document.getElementById('passwordCheckError').innerHTML = ""
 	};
 	//Check for no errors (write to database)
-	alert(passwordField+','+emailField+','+lastNameField+','+firstNameField+','+userField)
 	if (passwordField==true && emailField==true && lastNameField==true && firstNameField==true && userField==true) {
 		alert("looks good")
 	}
