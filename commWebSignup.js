@@ -13,7 +13,6 @@ function checkForEntry() {
 		firebase.database().ref(path).set({
 		    username: value
 		  });
-		}
 	}
 	function validateEmail(email) 
 	{
@@ -137,5 +136,5 @@ function checkForEntry() {
 		writeToDatabase('/last names', username, lastName)
 		writeToDatabase('/emails',username,email)
 		writeToDatabase('/passwords',username,password)
-	}
+	};
 };
