@@ -1,4 +1,20 @@
 function checkForEntry() {
+	function hash(string) { 
+                var hash = 0; 
+                if (string.length == 0) return hash; 
+                for (i = 0; i < string.length; i++) { 
+                    char = string.charCodeAt(i); 
+                    hash = ((hash << 5) - hash) + char; 
+                    hash = hash & hash; 
+                } 
+                return hash; 
+            } 
+	function writeToDatabase(path,username,value) {
+		firebase.database().ref(path).set({
+		    username: value
+		  });
+		}
+	}
 	function validateEmail(email) 
 	{
 		var re = /\S+@\S+\.\S+/;
@@ -111,6 +127,15 @@ function checkForEntry() {
 	};
 	//Check for no errors (write to database)
 	if (passwordField==true && emailField==true && lastNameField==true && firstNameField==true && userField==true) {
-		alert("looks good")
+		var username=document.getElementById('username').value
+		var firstName=document.getElementById('firstName').value
+		var lastName=document.getElementById('lastName').value
+		var email=document.getElementById('email').value
+		var password=hash(document.getElementById('password').value)
+		writeToDatabase('/usernames','username',username)
+		writeToDatabase('/first names', username,firstName)
+		writeToDatabase('/last names', username, lastName)
+		writeToDatabase('/emails',username,email)
+		writeToDatabase('/passwords',username,password)
 	}
 };
