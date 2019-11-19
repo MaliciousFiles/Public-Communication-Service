@@ -4,14 +4,21 @@ function checkForEntry() {
 		var re = /\S+@\S+\.\S+/;
    		return re.test(email);
 	}
-	function checkEntry(dict, entry) {
-		Object.keys(dict).forEach(function(key) {
-			if (dict[key] == entry) {
-				return "true";
+	function checkEntry(dict,entry) {
+		for (index in Object.keys(dict)) {
+			if (dict[Object.keys(dict)[index]]==entry) {
+				var True=true
+				var False=false
 			} else {
-				return "false";
-			};
-		});
+				var False=true;
+				var True=false
+			}
+			if (True==true) {
+				return true
+			} else {
+				return false
+			}
+		}
 	}
 	//Start checks for username field
 	//look for username
@@ -23,7 +30,7 @@ function checkForEntry() {
 	var userField = false
 	if (document.getElementById('username').value=="") {
 		document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
-	} else if (checkEntry(userCheck, document.getElementById('username').value)) {
+	} else if (checkEntry(userCheck, document.getElementById('username').value)==true) {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
@@ -39,7 +46,7 @@ function checkForEntry() {
 	var firstNameField = false
 	if (document.getElementById('firstName').value=="") {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
-	} else if (checkEntry(firstNameCheck, document.getElementById('firstName').value)) {
+	} else if (checkEntry(firstNameCheck, document.getElementById('firstName').value)==true) {
 		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
 	} else {
 		document.getElementById('firstNameError').innerHTML = ""
@@ -55,7 +62,7 @@ function checkForEntry() {
 	var lastNameField = false
 	if (document.getElementById('lastName').value=="") {
 		document.getElementById('lastNameError').innerHTML = "The last name field can't be blank!"
-	} else if (checkEntry(lastNameCheck, document.getElementById('lastName').value)) {
+	} else if (checkEntry(lastNameCheck, document.getElementById('lastName').value)==true) {
 		document.getElementById('lastNameError').innerHTML = "That last name is already registered!"
 	} else {
 		document.getElementById('lastNameError').innerHTML = ""
@@ -73,7 +80,7 @@ function checkForEntry() {
 		document.getElementById('emailError').innerHTML = "The email field can't be blank!"
 	} else if ((validateEmail(document.getElementById('email').value)==false)) {
 		document.getElementById('emailError').innerHTML = "Please enter a valid email!"
-	} else if (checkEntry(emailCheck, document.getElementById('email').value)) {
+	} else if (checkEntry(emailCheck, document.getElementById('email').value)==true) {
 		document.getElementById('emailError').innerHTML = "That email is already registered!"
 	} else {
 		document.getElementById('emailError').innerHTML = ""
