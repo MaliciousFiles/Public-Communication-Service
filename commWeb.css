@@ -20,7 +20,7 @@ body {
 
 .input {
 	white-space: nowrap;
-	background-image: linear-gradient(rgb(249, 106, 0), orange);
+	background-image: linear-gradient(rgb(249, 106, 0), rgb(251,162,0));
 	top: 15%;
 	left: 35.5%;
 	position: fixed;
