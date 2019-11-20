@@ -121,5 +121,6 @@ function checkForEntry() {
 		writeToDatabase('/emails',username,email);
 		writeToDatabase('/passwords',username,password);
 		writeToDatabase('/profile images',username,'./newUserImg.png');
+		window.location.href = "./dashboard.html";
 	};
 }
