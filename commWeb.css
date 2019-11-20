@@ -44,11 +44,11 @@ p.explainBG {
 	font-size: 30px;
 }
 
-p.explainBG#explainTop {
+p#explainTop.explainBG {
 	padding-top: 15vh;
 }
 
-p.explainBG#explainIndent {
+p#explainIndent.explainBG {
 	padding-left:15vw;
 }
 /*--------------------------------------*/
