@@ -50,33 +50,19 @@ function checkForEntry() {
 		userField = true
 	};
 	//start checks for first name field
-	//look for first name
-	var firstNameCheck = firebase.database().ref('/first names');
-	firstNameCheck.on("value", function(snapshot) {
-		firstNameCheck = snapshot.val();
-	});
 	//if statements
 	var firstNameField = false
 	if (document.getElementById('firstName').value=="") {
 		document.getElementById('firstNameError').innerHTML = "The first name field can't be blank!"
-	} else if (checkEntry(firstNameCheck, document.getElementById('firstName').value)==true) {
-		document.getElementById('firstNameError').innerHTML = "That first name is already registered!"
 	} else {
 		document.getElementById('firstNameError').innerHTML = ""
 		firstNameField = true
 	};
 	//start checks for last name field
-	//look for last name
-	var lastNameCheck = firebase.database().ref('/last names');
-	lastNameCheck.on("value", function(snapshot) {
-		lastNameCheck = snapshot.val();
-	});
 	//if statements
 	var lastNameField = false
 	if (document.getElementById('lastName').value=="") {
 		document.getElementById('lastNameError').innerHTML = "The last name field can't be blank!"
-	} else if (checkEntry(lastNameCheck, document.getElementById('lastName').value)==true) {
-		document.getElementById('lastNameError').innerHTML = "That last name is already registered!"
 	} else {
 		document.getElementById('lastNameError').innerHTML = ""
 		lastNameField = true
