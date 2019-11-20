@@ -7,16 +7,50 @@ body {
 	text-align: center;
 }
 
+/*--------------------------------------*/
+
 .bg {
 	background-image: url(./homeMainBG.png);
   	width: 100%;
-  	height: 110vh;
+  	height: 175vh;
   	background-repeat: no-repeat;
   	background-position: center center;
   	background-size: cover;
   	background-attachment: fixed;
 }
 
+p#top {
+	padding-top: 32vh;
+}
+
+p#indented {
+	margin-top: 10px;
+	padding-left: 40vw;
+}
+
+.bg p {
+	color: white;
+  	font-size: 50px;
+  	padding-left: 30vw;
+  	font-family: Impact, Charcoal, sans-serif	
+;
+	margin: 0px;
+}
+
+p.explainBG {
+	font-family: Georgia, serif;
+	margin: 0;
+	padding-left: 10vw;
+	font-size: 30px;
+}
+
+p.explainBG#explainTop {
+	padding-top: 15vh;
+}
+
+p.explainBG#explainIndent1 {
+	padding-left:15vw;
+}
 /*--------------------------------------*/
 
 .input {
@@ -64,8 +98,8 @@ body {
 
 /*--------------------------------------*/
 
-ul.navBar {
-	position: absolute;
+.navBar {
+	position: fixed;
 	list-style-type: none;
 	margin: 0;
 	background-color: grey;
