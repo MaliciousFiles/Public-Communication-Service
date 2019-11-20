@@ -1,7 +1,7 @@
 window.onscroll = function() {
-  if windowpageYOffset >= 1166 {
-    document.getElementById('navBar').style.top = "0px";
+  if (window.pageYOffset > 500) {
+    document.getElementsByClassName('navBar')[0].style.top = "0px";
   } else {
-    document.getElementById('navBar').style.top = "-50px";
+    document.getElementsByClassName('navBar')[0].style.top = "-999px";
   };
 }
