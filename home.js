@@ -26,7 +26,7 @@ function setSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
+function showSlide(n) {
   var i;
   var slides = document.getElementsByClassName("slide");
   var dots = document.getElementsByClassName("slideDot");
