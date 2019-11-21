@@ -13,9 +13,11 @@ body {
 /*--------------------------------------*/
 
 .slideshow {
-  max-width: 1000px;
+  max-width: 25vw;
   position: relative;
   margin: auto;
+  padding-left: 25vw;
+  max-height: 25vh;
 }
 
 .slideChange {
