@@ -15,8 +15,8 @@ body {
 .slideshow {
   position: relative;
   margin: auto;
-  padding-left: 25vw;
-  max-height: 25vh;
+  padding-left: 5%;
+  max-width: 60%;
 }
 
 .slideshow img {
@@ -37,6 +37,10 @@ body {
   user-select: none;
 }
 
+.slideDot#dot1 {
+	margin-left: 44%;
+}
+
 .slideChange#next {
   right: 0;
   border-radius: 3px 0 0 3px;
@@ -48,13 +52,14 @@ body {
 
 .slideDot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
   margin: 0 2px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+  margin-top: 10px;
 }
 
 .active, .slideDot:hover {
