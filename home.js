@@ -11,7 +11,7 @@ function sleep (time) {
 }
 sleep(12000).then(() => {
     if (window.pageYOffset < 500) {
-      window.scrollTo(0,500);
+      window.scrollTo(0,1336);
     };
 });
 
