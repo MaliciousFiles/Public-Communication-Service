@@ -16,7 +16,7 @@ sleep(12000).then(() => {
 });
 
 var slideIndex = 1
-showSlide(slideIndex)
+showSlides(slideIndex)
 
 function changeSlide(n) {
   showSlides(slideIndex += n);
@@ -26,7 +26,7 @@ function setSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlide(n) {
+function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("slide");
   var dots = document.getElementsByClassName("slideDot");
