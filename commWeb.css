@@ -12,6 +12,12 @@ body {
 
 /*--------------------------------------*/
 
+a.email a.phone {
+	color: blue;
+}
+
+/*--------------------------------------*/
+
 .slideshow {
   position: relative;
   margin: auto;
