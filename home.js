@@ -10,7 +10,7 @@ function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 sleep(12000).then(() => {
-    if window.pageYOffset < 500 {
+    if (window.pageYOffset < 500) {
       window.scrollTo(0,500);
     };
 });
