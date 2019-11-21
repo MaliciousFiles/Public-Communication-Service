@@ -4,7 +4,7 @@
 		<link rel="shortcut icon" href="./commWebLogo.png">
 	</head>
 	<body data-gr-c-s-loaded="true">
-		<ul class="navBar">
+		<ul class="navBar" style="top: 0px;">
 			<li><a href="./index.html" class="filledIn">Home</a></li>
 			<li><a href="./commWebLogin.html" class="notFilledIn">Log In</a></li>
 			<li><a href="./commWebSignup.html" class="notFilledIn">Sign Up</a></li>
@@ -19,14 +19,15 @@
 		<p class="explainBG">platform for all</p>
 	</div>
  	<script src="./home.js"></script>
+    <br>
 	<div class="slideshow">
-		<div class="slide">
+		<div class="slide" style="display: none;">
 			<img src="./Signup.png">
 		</div>
-		<div class="slide">
+		<div class="slide" style="display: none;">
 			<img src="">
 		</div>
-		<div class="slide">
+		<div class="slide" style="display: block;">
 			<img src="">
 		</div>
 		<a class="slideChange">❮</a>
@@ -35,7 +36,8 @@
 		<div>
 		    <span class="slideDot fade" onclick="setSlide(1)"></span>
 		    <span class="slideDot fade" onclick="setSlide(2)"></span>
-		    <span class="slideDot fade" onclick="setSlide(3)"></span>
+		    <span class="slideDot fade active" onclick="setSlide(3)"></span>
 		</div>
 	</div>
+
 </body></html>
