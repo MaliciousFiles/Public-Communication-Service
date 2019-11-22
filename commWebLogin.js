@@ -42,6 +42,7 @@ function signUp() {
   } else if (usernameExistCheck==false) {
     document.getElementById('usernameError').innerHTML = "Username incorrect!"
   } else {
+    document.getElementById('usernameError').innerHTML = ""
     var usernameField = true;
   };
   //check password field
@@ -57,6 +58,7 @@ function signUp() {
   } else if (passwordExistCheck==false) {
     document.getElementById('passwordError').innerHTML = "Password incorrect!"
   } else {
+    document.getElementById('passwordError').innerHTML = ""
     var passwordField = true;
   };
   if (passwordField==true && usernameField==true) {
