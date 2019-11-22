@@ -20,12 +20,13 @@ function signUp() {
 			if (dict[Object.keys(dict)[index]]==entry) {
 				var True=true
 			}
+		}
 			if (True==true) {
 				return true
 			} else {
 				return false
 			}
-		}
+		
 	}
   //check username field
   var usernameExistCheck = firebase.database().ref('/usernames');
