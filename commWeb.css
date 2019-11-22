@@ -185,6 +185,10 @@ p#explainIndent.explainBG {
 	color: red;
 }
 
+.input td.error {
+	color: red
+}
+
 /*--------------------------------------*/
 
 .navBar {
