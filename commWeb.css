@@ -12,12 +12,6 @@ body {
 
 /*--------------------------------------*/
 
-a.email a.phone {
-	color: blue;
-}
-
-/*--------------------------------------*/
-
 .slideshow {
   position: relative;
   margin: auto;
@@ -229,4 +223,30 @@ img.logo {
 	height: 50px;
 	float: right;
 	margin-right: 5px
+}
+
+/*--------------------------------------*/
+
+a.email{
+	color: #338e85;
+}
+
+a.phone {
+	color: #338e85;
+}
+
+div#contact {
+	width: 16.5vw;
+	left: 40%;
+	top:  30%
+}
+
+div#contact p {
+	font-style: normal;
+	float: left;
+	margin-top: 0;
+}
+
+div.needSpace {
+	text-indent: .3em;
 }
