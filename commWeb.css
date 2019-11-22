@@ -21,7 +21,6 @@ a.email a.phone {
 .slideshow {
   position: relative;
   margin: auto;
-  padding-left: 5%;
   max-width: 60%;
 }
 
@@ -41,10 +40,12 @@ a.email a.phone {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  margin-top: -25%;
+  font-size: 30px;
 }
 
 .slideDot#dot1 {
-	margin-left: 44%;
+	margin-left: 43%;
 }
 
 .slideChange#next {
