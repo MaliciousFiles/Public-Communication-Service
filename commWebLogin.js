@@ -46,7 +46,7 @@ function signUp() {
     var usernameField = true;
   };
   //check password field
-  var passwordExistCheck = firebase.database().ref('/usernames');
+  var passwordExistCheck = firebase.database().ref('/passwords');
   passwordExistCheck.on("value", function(snapshot) {
     passwordExistCheck = snapshot.val();
   });
