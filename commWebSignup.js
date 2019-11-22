@@ -27,10 +27,6 @@ function checkForEntry() {
 		for (index in Object.keys(dict)) {
 			if (dict[Object.keys(dict)[index]]==entry) {
 				var True=true
-				var False=false
-			} else {
-				var False=true;
-				var True=false
 			}
 			if (True==true) {
 				return true
