@@ -1,10 +1,10 @@
-<html><head>
+<html class="gr__malcolm07_github_io"><head>
 		<title>Public Comm Service | Home</title>
 		<link rel="stylesheet" href="./commWeb.css">
 		<link rel="shortcut icon" href="./commWebLogo.png">
 	</head>
 	<body data-gr-c-s-loaded="true">
-		<ul class="navBar" style="top: 0px;">
+		<ul class="navBar" style="top: -999px;">
 			<li><a href="./index.html" class="filledIn">Home</a></li>
 			<li><a href="./commWebLogin.html" class="notFilledIn">Log In</a></li>
 			<li><a href="./commWebSignup.html" class="notFilledIn">Sign Up</a></li>
@@ -14,31 +14,33 @@
     	<div class="bg">
 		<p id="top">Connecting millions</p>
 		<p id="indented">of users world-wide</p>
+    	<p id="button"><a href="./commWebSignup.html"><button>Get Started</button></a></p>
 		<p class="explainBG" id="explainTop">At Public Communication Service,</p>
 		<p class="explainBG" id="explainIndent">we believe in and provide a communications</p>
 		<p class="explainBG">platform for all</p>
 	</div>
     <br>
 	<div class="slideshow">
-		<div class="slide" style="display: block;">
+		<div class="slide" style="display: none;">
 			<img src="./communicationSlide.png">
 		</div>
 		<div class="slide" style="display: none;">
 			<img src="./Signup.png">
 		</div>
-		<div class="slide" style="display: none;">
+		<div class="slide" style="display: block;">
 			<img src="">
 		</div>
 		<a class="slideChange" onclick="changeSlide(-1)">❮</a>
 		<a class="slideChange" id="next" onclick="changeSlide(1)">❯</a>
 		<br>
 		<div>
-		    <span class="slideDot fade active" onclick="setSlide(1)" id="dot1"></span>
+		    <span class="slideDot fade" onclick="setSlide(1)" id="dot1"></span>
 		    <span class="slideDot fade" onclick="setSlide(2)"></span>
-		    <span class="slideDot fade" onclick="setSlide(3)"></span>
+		    <span class="slideDot fade active" onclick="setSlide(3)"></span>
 		</div>
 	</div>
  	<script src="./home.js"></script>
+
 
 
 
