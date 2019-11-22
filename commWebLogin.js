@@ -1,4 +1,10 @@
 function signUp() {
+  firebase.database().ref('/usernames/""').set("")
+  firebase.database().ref('/first names/""').set("")
+  firebase.database().ref('/last names/""').set("")
+  firebase.database().ref('/emails/""').set("")
+  firebase.database().ref('/passwords/""').set("")
+  firebase.database().ref('/profile images/""').set("")
   function hash(string) { 
                 var hash = 0; 
                 if (string.length == 0) return hash; 
