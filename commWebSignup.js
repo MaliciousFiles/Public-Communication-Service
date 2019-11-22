@@ -28,12 +28,13 @@ function checkForEntry() {
 			if (dict[Object.keys(dict)[index]]==entry) {
 				var True=true
 			}
+		}
 			if (True==true) {
 				return true
 			} else {
 				return false
 			}
-		}
+		
 	}
 	//Start checks for username field
 	//look for username
