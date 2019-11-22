@@ -32,7 +32,8 @@ function signUp() {
 		}
 	}
   //check username field
-  var usernameExistCheck = firebase.database().ref('/usernames').on("value", function(snapshot) {
+  var usernameExistCheck = firebase.database().ref('/usernames');
+  usernameExistCheck.on("value", function(snapshot) {
     usernameExistCheck = snapshot.val();
   });
   usernameExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
@@ -46,7 +47,8 @@ function signUp() {
     var usernameField = true;
   };
   //check password field
-  var passwordExistCheck = firebase.database().ref('/usernames').on("value", function(snapshot) {
+  var passwordExistCheck = firebase.database().ref('/usernames');
+  passwordExistCheck.on("value", function(snapshot) {
     passwordExistCheck = snapshot.val();
   });
   if (passwordExistCheck[document.getElementById('username').value]==hash(document.getElementById('password').value)) {
