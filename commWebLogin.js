@@ -34,8 +34,8 @@ function signUp() {
   //check username field
   var usernameExistCheck = firebase.database().ref('/usernames').on("value", function(snapshot) {
     usernameExistCheck = snapshot.val();
-    usernameExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
   });
+  usernameExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
   //if statements
   if (document.getElementById('username').value=="") {
     document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
@@ -48,10 +48,10 @@ function signUp() {
   //check password field
   var passwordExistCheck = firebase.database().ref('/usernames').on("value", function(snapshot) {
     passwordExistCheck = snapshot.val();
-    if (passwordExistCheck[document.getElementById('username').value]==hash(document.getElementById('password').value)) {
+  });
+  if (passwordExistCheck[document.getElementById('username').value]==hash(document.getElementById('password').value)) {
         passwordExistCheck=true;
     };
-  });
   //if statements
   if (document.getElementById('password').value=="") {
     document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
