@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Public Comm Service | Forgot Password</title>
+		<link rel="stylesheet" href=./commWeb.css>
+		<link rel="shortcut icon" href=./commWebLogo.png>
+	</head>
+	<body>
+		<ul class="navBar">
+			<li><a href="./index.html" class="notFilledIn">Home</a></li>
+			<li><a href="./commWebLogin.html" class="filledIn">Log In</a></li>
+			<li><a href="./commWebSignup.html" class="notFilledIn">Sign Up</a></li>
+			<li><a href="./commWebContact.html" class="notFilledIn">Contact Us</a></li>
+			<li><img src="./commWebLogo.png" class="logo" alt="Public Communication Service Logo"></li>
+		</ul>
+		<div class="input" id="input">
+			<h2 class="center">Forgot Password</h2>
+			<table>
+				<tbody><tr>
+					<td class="label"><label>Username</label></td>
+				</tr>
+				<tr>
+					<td><input type="text" id="username" placeholder="BobTheBob"></td>
+				</tr>
+				<tr>
+					<td class="error"><label id="usernameError"></label></td>
+				</tr>
+				<tr>
+					<td class="label"><label>Email</label></td>
+				</tr>
+				<tr>
+					<td><input type="text" id="email" placeholder="joe.roberts@example.com"></td>
+				</tr>
+				<tr>
+					<td class="error"><label id="emailError"></label></td>
+				</tr>
+					<tr><td id="button"><button onclick="sendEmail()">Log In</button></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</body>
+	<script src=./commWebForgPass.js></script>
+</html>
