@@ -46,11 +46,11 @@
 		<div class="input" id="input">
 			<h2 class="center">Log In</h2>
 			<table>
-				<tr>
+				<tbody><tr>
 					<td class="label"><label>Username</label></td>
 				</tr>
 				<tr>
-					<td><input type="text" id="username" placeholder="Username or Email" /></td>
+					<td><input type="text" id="username" placeholder="Username or Email"></td>
 				</tr>
 				<tr>
 					<td class="error"><label id="usernameError"></label></td>
@@ -59,14 +59,21 @@
 					<td class="label"><label>Password</label></td>
 				</tr>
 				<tr>
-					<td><input type="password" id="password" placeholder="Password" /></td>
+					<td><input type="password" id="password" placeholder="Password"></td>
 				</tr>
 				<tr>
 					<td class="error"><label id="passwordError"></label></td>
-				</tr
-				<tr>
-					<td id="button"><button onclick="signUp()">Log In</button></td>
 				</tr>
+    			<tr>
+                    <td><a href="./commWebForgUser">Forgot username</a></td>
+	
+</tr>
+    <tr>
+        <td><a href="./commWebForgPass">Forgot password</a></td>
+    </tr>
+					<tr><td id="button"><button onclick="signUp()">Log In</button></td>
+				</tr>
+			</tbody>
 			</table>
 		</div>
 	</body>
