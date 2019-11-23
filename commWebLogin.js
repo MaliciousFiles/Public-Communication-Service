@@ -33,9 +33,7 @@ function signUp() {
   usernameExistCheck.on("value", function(snapshot) {
     usernameExistCheck = snapshot.val();
   });
-  console.log(usernameExistCheck)
   usernameExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
-  alert(usernameExistCheck)
   //if statements
   if (document.getElementById('username').value=="") {
     document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
