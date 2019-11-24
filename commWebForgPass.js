@@ -18,6 +18,11 @@ function sendEmail () {
 			}
 		
 	}
+	function validateEmail(email) 
+	{
+		var re = /\S+@\S+\.\S+/;
+   		return re.test(email);
+	}
   //check username field
   var usernameExistCheck = firebase.database().ref('/usernames');
   usernameExistCheck.on("value", function(snapshot) {
@@ -33,6 +38,7 @@ function sendEmail () {
     document.getElementById('usernameError').innerHTML = ""
     var usernameField = true;
   };
+	window.username = document.getElementById('username').value;
   //check password field
   var emailExistCheck = firebase.database().ref('/emails');
   emailExistCheck.on("value", function(snapshot) {
@@ -42,6 +48,8 @@ function sendEmail () {
   //if statements
   if (document.getElementById('email').value=="") {
     document.getElementById('emailError').innerHTML = "The email field can't be blank!"
+  } else if (validateEmail(document.getElementById('email').value)==false) {
+	  document.getElementById('emailError').innerHTML = "Please enter a valid email!"
   } else if (emailExistCheck==false) {
     document.getElementById('emailError').innerHTML = "Email incorrect!"
   } else {
@@ -66,4 +74,48 @@ function sendEmail () {
 	document.getElementById('recoverButton').setAttribute('id', 'setButton');
 	document.getElementById('forgPassTitle').innerHTML = "Reset Password";
   }
+}
+
+function setPassword() {
+	function hash(string) { 
+                var hash = 0; 
+                if (string.length == 0) return hash; 
+                for (i = 0; i < string.length; i++) { 
+                    char = string.charCodeAt(i); 
+                    hash = ((hash << 5) - hash) + char; 
+                    hash = hash & hash; 
+                } 
+                return hash; 
+            } 
+	function writeToDatabase(path,username,value) {
+		firebase.database().ref(path+'/'+username).set(value);
+	}
+	//password field
+	var passwordField = false
+	if (document.getElementById('password').value=="") {
+		document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
+	} else {
+		document.getElementById('passwordError').innerHTML = ""
+		passwordField = true
+	};
+	//start checks for password check field
+	var passwordCheckField = false
+	//if statements
+	if (document.getElementById('passwordCheck').value=="") {
+		document.getElementById('passwordCheckError').innerHTML = "The password check field can't be blank"
+	} else if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
+		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
+	} else {
+		document.getElementById('passwordCheckError').innerHTML = "";
+	};
+	if (document.getElementById('password').value!=document.getElementById('passwordCheck').value) {
+		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
+	} else {
+		document.getElementById('passwordCheckError').innerHTML = "";
+		passwordCheckField = true
+	};
+	if (passwordField==true && passwordCheckField==true) {
+		var password=hash(document.getElementById('password').value);
+		writeToDatabase('/passwords',window.username,password);
+		window.location.href = ./commWebLogin.html
 }
