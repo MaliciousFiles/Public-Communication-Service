@@ -49,15 +49,6 @@ function sendEmail () {
     var emailField = true;
   };
   if (emailField==true && usernameField==true) {
-  	Email.send({
-		Host: "smtp.elasticemail.com",
-		Username: 'mtroalson@gmail.com',
-		Password: "f5221373-1006-468d-b46d-ce2054fabf3d",
-		To: document.getElementById('email').value,
-		From: "publiccommserv@gmail.com",
-		Subject: "Reset Your Password | PCS Help",
-		Body: "And this is the body"
-	})
-    window.location.href = "./commWebLogin.html";
+    window.location.href = "./resetPass.html";
   }
 }
