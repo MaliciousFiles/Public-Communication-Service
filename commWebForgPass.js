@@ -49,6 +49,17 @@ function sendEmail () {
     var emailField = true;
   };
   if (emailField==true && usernameField==true) {
-    window.location.href = "./resetPass.html";
+	document.getElementById('username').setAttribute('type', 'password');
+	document.getElementById('username').setAttribute('placeholder', '');
+    document.getElementById('username').setAttribute('id', 'password');
+	document.getElementById('email').setAttribute('type', 'password');
+	document.getElementById('email').setAttribute('placeholder', '');
+	document.getElementById('email').setAttribute('id', 'passwordCheck');
+	document.getElementById('usernameLabel').innerHTML = 'Password';
+	document.getElementById('usernameLabel').setAttribute('id', 'passwordLabel');
+	document.getElementById('emailLabel').innerHTML = 'Password Again';
+	document.getElementById('emailLabel').setAttribute('id', 'passwordCheckLabel');
+	document.getElementById('recoverButton').innerHTML = 'Set Password';
+	document.getElementById('recoverButton').setAttribute('id', 'setButton');
   }
 }
