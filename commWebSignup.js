@@ -98,6 +98,7 @@ function checkForEntry() {
 		passwordField = true
 	};
 	//start checks for password check field
+	var passwordCheckField = false;
 	//if statements
 	if (document.getElementById('passwordCheck').value=="") {
 		document.getElementById('passwordCheckError').innerHTML = "The password check field can't be blank"
@@ -110,9 +111,10 @@ function checkForEntry() {
 		document.getElementById('passwordCheckError').innerHTML = "Passwords don't match!"
 	} else {
 		document.getElementById('passwordCheckError').innerHTML = "";
+		passwordCheckField = true
 	};
 	//Check for no errors (write to database)
-	if (passwordField==true && emailField==true && lastNameField==true && firstNameField==true && userField==true) {
+	if (passwordCheckField==true && passwordField==true && emailField==true && lastNameField==true && firstNameField==true && userField==true) {
 		var username=document.getElementById('username').value;
 		var firstName=document.getElementById('firstName').value;
 		var lastName=document.getElementById('lastName').value;
