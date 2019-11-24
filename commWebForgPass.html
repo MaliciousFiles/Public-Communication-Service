@@ -47,7 +47,7 @@
 			<h2 class="center">Forgot Password</h2>
 			<table>
 				<tbody><tr>
-					<td class="label"><label>Username</label></td>
+					<td class="label"><label id="usernameLabel">Username</label></td>
 				</tr>
 				<tr>
 					<td><input type="text" id="username" placeholder="BobTheBob"></td>
@@ -56,7 +56,7 @@
 					<td class="error"><label id="usernameError"></label></td>
 				</tr>
 				<tr>
-					<td class="label"><label>Email</label></td>
+					<td class="label"><label id="emailLabel">Email</label></td>
 				</tr>
 				<tr>
 					<td><input type="text" id="email" placeholder="joe.roberts@example.com"></td>
@@ -64,7 +64,7 @@
 				<tr>
 					<td class="error"><label id="emailError"></label></td>
 				</tr>
-					<tr><td id="button"><button onclick="sendEmail()">Recover Password</button></td>
+					<tr><td id="button"><button onclick="sendEmail()" id="recoverButton">Recover Password</button></td>
 				</tr>
 			</tbody></table>
 		</div>
