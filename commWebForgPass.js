@@ -62,6 +62,7 @@ function sendEmail () {
 	document.getElementById('emailLabel').innerHTML = 'Password Again';
 	document.getElementById('emailLabel').setAttribute('id', 'passwordCheckLabel');
 	document.getElementById('recoverButton').innerHTML = 'Set Password';
+	document.getElementById('recoverButton').setAttribute('onclick', 'setPassword()');
 	document.getElementById('recoverButton').setAttribute('id', 'setButton');
 	document.getElementById('forgPassTitle').innerHTML = "Reset Password";
   }
