@@ -51,11 +51,11 @@ function sendEmail () {
   if (emailField==true && usernameField==true) {
 	document.getElementById('username').setAttribute('type', 'password');
 	document.getElementById('username').setAttribute('placeholder', '');
-	document.getElementById('username').setAttribute('value', '');
+	document.getElementById('username').value = '';
   	document.getElementById('username').setAttribute('id', 'password');
 	document.getElementById('email').setAttribute('type', 'password');
 	document.getElementById('email').setAttribute('placeholder', '');
-	document.getElementById('email').setAttribute('value', '');
+	document.getElementById('email').value = '';
 	document.getElementById('email').setAttribute('id', 'passwordCheck');
 	document.getElementById('usernameLabel').innerHTML = 'Password';
 	document.getElementById('usernameLabel').setAttribute('id', 'passwordLabel');
