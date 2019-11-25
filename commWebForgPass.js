@@ -117,5 +117,5 @@ function setPassword() {
 	if (passwordField==true && passwordCheckField==true) {
 		var password=hash(document.getElementById('password').value);
 		writeToDatabase('/passwords',window.username,password);
-		window.location.href = ./commWebLogin.html
+		window.location.href = "./commWebLogin.html"
 }
