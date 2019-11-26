@@ -61,6 +61,6 @@ function signUp() {
     var passwordField = true;
   };
   if (passwordField==true && usernameField==true) {
-    window.location.href = "./dashboard.html";
+    window.location.href = "./commWebDashboard.html";
   }
 }
