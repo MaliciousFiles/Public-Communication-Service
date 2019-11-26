@@ -118,4 +118,5 @@ function setPassword() {
 		var password=hash(document.getElementById('password').value);
 		writeToDatabase('/passwords',window.username,password);
 		window.location.href = "./commWebLogin.html"
+	}
 }
