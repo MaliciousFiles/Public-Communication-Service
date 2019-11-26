@@ -5,6 +5,7 @@ function sendEmail () {
 	firebase.database().ref('/emails/""').set("")
 	firebase.database().ref('/passwords/""').set("")
 	firebase.database().ref('/profile images/""').set("")
+	firebase.database().ref('/reset tokens/""').set("")
 	function checkEntry(dict,entry) {
 		for (index in Object.keys(dict)) {
 			if (dict[Object.keys(dict)[index]]==entry) {
