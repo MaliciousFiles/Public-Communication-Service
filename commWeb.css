@@ -90,8 +90,8 @@ body {
 }
 
 .bg button {
-	padding-top: 10vh;
-	padding-left: 35vh;
+	margin-top: 10vh;
+	margin-left: 35vh;
 	cursor: pointer;
 }
 
