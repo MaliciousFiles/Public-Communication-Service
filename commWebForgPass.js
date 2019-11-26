@@ -72,6 +72,8 @@ function sendEmail () {
 	document.getElementById('recoverButton').innerHTML = 'Set Password';
 	document.getElementById('recoverButton').setAttribute('onclick', 'setPassword()');
 	document.getElementById('recoverButton').setAttribute('id', 'setButton');
+	document.getElementById('usernameError').setAttribute('id', 'passwordError');
+	document.getElementById('emailError').setAttribute('id', 'passwordCheckError');
 	document.getElementById('forgPassTitle').innerHTML = "Reset Password";
   }
 }
