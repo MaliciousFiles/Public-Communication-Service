@@ -89,7 +89,7 @@ body {
   	background-attachment: fixed;
 }
 
-.bg p.button {
+.bg button {
 	padding-top: 10vh;
 	padding-left: 35vh;
 	cursor: pointer;
