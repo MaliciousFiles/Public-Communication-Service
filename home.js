@@ -9,11 +9,6 @@ window.onscroll = function() {
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
-sleep(12000).then(() => {
-    if (window.pageYOffset < 500) {
-      window.scrollTo(0,1336);
-    };
-});
 
 var slideIndex = 1
 showSlides(slideIndex)
@@ -41,4 +36,8 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
   setTimeout("changeSlide(1)", 8000);
+}
+
+function goTo(url) {
+  window.location.href = url;
 }
