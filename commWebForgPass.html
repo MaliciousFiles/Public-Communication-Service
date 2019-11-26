@@ -36,8 +36,80 @@
 		</script><script src="https://www.googletagmanager.com/gtag/js?l=dataLayer" async=""></script>
 		<script src=./commWebForgPass.js></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="http://www.skulpt.org/js/skulpt.min.js"></script> 
-		<script src="http://www.skulpt.org/js/skulpt-stdlib.js"></script> 
+		<script src="http://www.skulpt.org/js/skulpt.min.js"></script>
+		<script src="http://www.skulpt.org/js/skulpt-stdlib.js"></script>
+		<script>
+			function outf(text) { 
+			    console.log(text)
+			} 
+			function builtinRead(x) {
+			    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+				    throw "File not found: '" + x + "'";
+			    return Sk.builtinFiles["files"][x];
+			}
+			function runit() { 
+			   var prog = "def forgPassEmail(TO, USER, TOKEN):
+			    import smtplib
+			    from email.mime.multipart import MIMEMultipart
+			    from email.mime.text import MIMEText
+			    server = smtplib.SMTP('smtp.gmail.com')
+			    server.starttls()
+			    server.login('publiccommserv@gmail.com', 'imndubaghlyovusx')
+			    MESSAGE = MIMEMultipart('alternative')
+			    MESSAGE['Subject'] = 'Reset Password | PCS Help'
+			    MESSAGE['From'] = 'publiccommserv@gmail.com'
+			    MESSAGE['To'] = TO
+			    buttonStyle = """
+			font: bold 11px Arial;
+			text-decoration: none;
+			background-color: #EEEEEE;
+			color: #333333;
+			padding: 2px 6px 2px 6px;
+			border-top: 1px solid #CCCCCC;
+			border-right: 1px solid #333333;
+			border-bottom: 1px solid #333333;
+			border-left: 1px solid #CCCCCC;
+			border-radius: 4px;
+			"""
+			    text =  MIMEText(f'''\
+			<html>
+			    <body>
+				<p>Dear {USER},</p>
+				<br>
+				<br>
+				<p>You have requested a password reset link. If you do not\
+			 recognize this username or you have not requested a password reset, please\
+			 delete this email.</p>
+				<br>
+				<center>
+				    <p>To reset your password click this button:<br><br>
+			<a style="{buttonStyle}" href="https://malcolm07.github.io/Public-Communication-Service/commWebResetPass.html?user={TOKEN}">\
+			Reset Password</a><br><br>WARNING: After 24 hours, this link will not be usable!</p>
+				</center>
+				<br>
+				<br>
+				<p>From PCS Help</p>
+			    </body>
+			</html>
+			''', 'html')
+			    MESSAGE.attach(text)
+			    server.sendmail('publiccommserv@gmail.com', TO, MESSAGE.as_string())
+			    server.quit()";
+			   Sk.pre = "output";
+			   Sk.configure({output:outf, read:builtinRead}); 
+			   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+			   var myPromise = Sk.misceval.asyncToPromise(function() {
+			       return Sk.importMainWithBody("<stdin>", false, prog, true);
+			   });
+			   myPromise.then(function(mod) {
+			       console.log('success');
+			   },
+			       function(err) {
+			       console.log(err.toString());
+			   });
+			} 
+			
+		</script>
 	</head>
 	<body>
 		<ul class="navBar">
