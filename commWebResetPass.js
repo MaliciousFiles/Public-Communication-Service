@@ -111,7 +111,9 @@ function checkTimes() {
 		if (tokenTimeCheck[key] >= 86400) {
 			firebase.database().ref('/reset times/'+key).remove()
 		} else {
-			firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+			if (tokenTimeCheck[key]!="") {
+				firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+			}
 		}
 	})
 }
