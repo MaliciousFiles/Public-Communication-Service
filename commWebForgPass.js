@@ -109,7 +109,11 @@ function resetPass() {
 	} while (checkEntry(tokenCheck, token));
 	writeToDatabase('/reset tokens', username, token)
 	emailjs.send("gmail", "forgot_password", {"to":email,"user":username,"token":token})
-  	window.location.href = "./commWebLogin.html"
+  	function move() {window.location.href = "./commWebLogin.html"}
+  	document.getElementById('recoverButton').innerHTML = 'Sending...'
+  	document.getElementById('recoverButton').disabled = true
+  	document.getElementById('recoverButton').setAttribute('style', 'cursor: not-allowed')
+  	setInterval(move, 6000)
   }
 }
 function checkTimes() {
