@@ -1,40 +1,12 @@
-function getUrlVars() {
-		var vars = {};
-		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-			vars[key] = value;
-		});
-		return vars;
-	}
-function checkEntry(dict,entry) {
-		for (index in Object.keys(dict)) {
-			if (dict[Object.keys(dict)[index]]==entry) {
-				var True=true
-			}
-		}
-			if (True==true) {
-				return true
-			} else {
-				return false
-			}
-		
-	}
-tokenCheck = firebase.database().ref('/reset tokens')
-tokenCheck.on('value', function(snapshot) {tokenCheck=snapshot.val()})
-if (checkEntry(tokenCheck, getUrlVars['token'])) {
-	document.getElementById('input').setAttribute('class', '')
-	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
-	document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
-	document.getElementById('input').setAttribute('id', '');
-}
+firebase.database().ref('/usernames/""').set("")
+firebase.database().ref('/first names/""').set("")
+firebase.database().ref('/last names/""').set("")
+firebase.database().ref('/emails/""').set("")
+firebase.database().ref('/passwords/""').set("")
+firebase.database().ref('/profile images/""').set("")
+firebase.database().ref('/reset tokens/""').set("")
+firebase.database().ref('/reset times/""').set("")
 function resetPass() {
-	  firebase.database().ref('/usernames/""').set("")
-	  firebase.database().ref('/first names/""').set("")
-	  firebase.database().ref('/last names/""').set("")
-	  firebase.database().ref('/emails/""').set("")
-	  firebase.database().ref('/passwords/""').set("")
-	  firebase.database().ref('/profile images/""').set("")
-	  firebase.database().ref('/reset tokens/""').set("")
-	  firebase.database().ref('/reset times/""').set("")
 	function hash(string) { 
                 var hash = 0; 
                 if (string.length == 0) return hash; 
