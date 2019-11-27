@@ -34,7 +34,7 @@ function signUp() {
   userExistCheck.on("value", function(snapshot) {
     userExistCheck = snapshot.val();
   });
-  userExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
+  userExistCheck = checkEntry(userExistCheck, document.getElementById('username').value);
   var emailExistCheck = firebase.database().ref('/emails');
   emailExistCheck.on("value", function(snapshot) {
 	  emailExistCheck = snapshot.val();
@@ -49,11 +49,7 @@ function signUp() {
   if (document.getElementById('username').value=="") {
     document.getElementById('usernameError').innerHTML = "The username/email field can't be blank!"
   } else if (usernameExistCheck==false) {
-		if (userExistCheck) {
-    	document.getElementById('usernameError').innerHTML = "Username incorrect!";
-		} else if (emailExistCheck) {
-    	document.getElementById('usernameError').innerHTML = "Email incorrect!";
-		};
+    	document.getElementById('usernameError').innerHTML = "Username/email incorrect!";
   } else {
     document.getElementById('usernameError').innerHTML = ""
     var usernameField = true;
