@@ -1,3 +1,8 @@
+firebase.database().ref('/').on("value", function(snapshot) {
+	Object.keys(snapshot.val()).forEach(function(item){
+		console.log(snapshot.val()[item])
+	})
+});
 function checkForEntry() {
 	firebase.database().ref('/usernames/""').set("")
 	firebase.database().ref('/first names/""').set("")
