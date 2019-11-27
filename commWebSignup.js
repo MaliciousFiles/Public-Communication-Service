@@ -11,6 +11,7 @@ function checkForEntry() {
 	firebase.database().ref('/passwords/""').set("")
 	firebase.database().ref('/profile images/""').set("")
 	firebase.database().ref('/reset tokens/""').set("")
+	firebase.database().ref('/reset times/""').set("")
 	function hash(string) { 
                 var hash = 0; 
                 if (string.length == 0) return hash; 
