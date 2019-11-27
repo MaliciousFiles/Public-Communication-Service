@@ -41,3 +41,16 @@ function showSlides(n) {
 function goTo(url) {
   window.location.href = url;
 }
+
+function checkTimes() {
+	var tokenTimeCheck = firebase.database().ref('/reset times')
+	tokenTimeCheck.on('value', function(snapshot) {tokenTimeCheck=snapshot.val()})
+	Object.keys(tokenTimeCheck).forEach(function(key) {
+		if (tokenTimeCheck[key] >= 86400) {
+			firebase.database().ref('/reset times/'+key).remove()
+		} else {
+			firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+		}
+	})
+}
+setInterval(checkTimes, 1000)
