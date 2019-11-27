@@ -1,6 +1,6 @@
 firebase.database().ref('/').on("value", function(snapshot) {
 	Object.keys(snapshot.val()).forEach(function(item){
-		console.log(snapshot.val()[item])
+		var temp=snapshot.val()[item]
 	})
 });
 function checkForEntry() {
