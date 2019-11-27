@@ -94,7 +94,7 @@ function sendEmail () {
   }
 }
 
-function setPassword() {
+/*function setPassword() {
 	function hash(string) { 
                 var hash = 0; 
                 if (string.length == 0) return hash; 
@@ -137,4 +137,4 @@ function setPassword() {
 		writeToDatabase('/passwords',window.username,password);
 		window.location.href = "./commWebLogin.html"
 	}
-}
+}*/
