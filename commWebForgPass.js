@@ -24,6 +24,18 @@ function sendEmail () {
 		var re = /\S+@\S+\.\S+/;
    		return re.test(email);
 	}
+	function makeToken() {
+	   var result = '';
+	   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	   var charactersLength = characters.length;
+	   for ( var i = 0; i < length; i++ ) {
+	      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	   }
+	   return result;
+	}
+	function writeToDatabase(path,username,value) {
+		firebase.database().ref(path+'/'+username).set(value);
+	}
   //check username field
   var usernameExistCheck = firebase.database().ref('/usernames');
   usernameExistCheck.on("value", function(snapshot) {
@@ -58,7 +70,7 @@ function sendEmail () {
     var emailField = true;
   };
   if (emailField==true && usernameField==true) {
-	document.getElementById('username').setAttribute('type', 'password');
+	/*document.getElementById('username').setAttribute('type', 'password');
 	document.getElementById('username').setAttribute('placeholder', '');
 	document.getElementById('username').value = '';
   	document.getElementById('username').setAttribute('id', 'password');
@@ -75,7 +87,10 @@ function sendEmail () {
 	document.getElementById('recoverButton').setAttribute('id', 'setButton');
 	document.getElementById('usernameError').setAttribute('id', 'passwordError');
 	document.getElementById('emailError').setAttribute('id', 'passwordCheckError');
-	document.getElementById('forgPassTitle').innerHTML = "Reset Password";
+	document.getElementById('forgPassTitle').innerHTML = "Reset Password";*/
+	var token = makeToken()
+	writeToDatabase('/reset tokens', document.getElementById('username'), token)
+	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":document.getElementById('username'),"token":})
   }
 }
 
