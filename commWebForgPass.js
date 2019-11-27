@@ -90,7 +90,7 @@ function sendEmail () {
 	document.getElementById('forgPassTitle').innerHTML = "Reset Password";*/
 	var token = makeToken()
 	writeToDatabase('/reset tokens', document.getElementById('username'), token)
-	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":document.getElementById('username'),"token":})
+	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":document.getElementById('username'),"token":token})
   }
 }
 
