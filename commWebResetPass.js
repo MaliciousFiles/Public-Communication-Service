@@ -26,6 +26,11 @@ if (checkEntry(tokenCheck, getUrlVars['token'])) {
 	document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
 	document.getElementById('input').setAttribute('id', '');
 }
+firebase.database().ref('/').on("value", function(snapshot) {
+	Object.keys(snapshot.val()).forEach(function(item){
+		var temp=snapshot.val()[item]
+	})
+});
 firebase.database().ref('/usernames/""').set("")
 firebase.database().ref('/first names/""').set("")
 firebase.database().ref('/last names/""').set("")
