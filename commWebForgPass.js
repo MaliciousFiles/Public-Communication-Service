@@ -36,7 +36,7 @@ function sendEmail () {
 	   var result = '';
 	   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	   var charactersLength = characters.length;
-	   for ( var i = 0; i < length; i++ ) {
+	   for ( var i = 0; i < 10; i++ ) {
 	      result += characters.charAt(Math.floor(Math.random() * charactersLength));
 	   }
 	   return result;
@@ -92,16 +92,28 @@ function sendEmail () {
 	username.on("value", function(snapshot) {
 		username = snapshot.val();
 	});
-	username = getKeyByValue(username, document.getElementById('email'));
+	username = getKeyByValue(username, document.getElementById('username').value);
+	if (username==null) {
+		username=document.getElementById('username').value
+	};
+	var email = firebase.database().ref("/emails")
+	email.on('value', function(snapshot) {
+		email = snapshot.val();
+	})
+	email = email[document.getElementById("username").value];
+	if (email==null) {
+		email = document.getElementById('username').value;
+	}
 	do {
-		var token = 'ref'
+		var token = makeToken()
 		var tokenCheck = firebase.database().ref('/reset tokens')
 		tokenCheck.on("value", function(snapshot) {
 			tokenCheck = snapshot.val();
 		});
 	} while (checkEntry(tokenCheck, token));
-	writeToDatabase('/reset tokens', document.getElementById('username').value, token)
-	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":username,"token":token})
+	writeToDatabase('/reset tokens', username, token)
+	emailjs.send("gmail", "forgot_password", {"to":email,"user":username,"token":token})
+  	window.location.href = "./commWebLogin.html"
   }
 }
 
