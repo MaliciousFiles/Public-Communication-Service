@@ -19,6 +19,14 @@ function sendEmail () {
 			}
 		
 	}
+	function getKeyByValue(object, value) {
+	    for( var prop in object ) {
+		if( object.hasOwnProperty( prop ) ) {
+		     if( object[ prop ] === value )
+			 return prop;
+		}
+	    }
+	}
 	function validateEmail(email) 
 	{
 		var re = /\S+@\S+\.\S+/;
@@ -88,9 +96,20 @@ function sendEmail () {
 	document.getElementById('usernameError').setAttribute('id', 'passwordError');
 	document.getElementById('emailError').setAttribute('id', 'passwordCheckError');
 	document.getElementById('forgPassTitle').innerHTML = "Reset Password";*/
-	var token = makeToken()
+	var username = firebase.database().ref('/emails')
+	username.on("value", function(snapshot) {
+		username = snapshot.val();
+	});
+	username = getKeyByValue(username, document.getElementById('email'));
+	do {
+		var token = 'ref'
+		var tokenCheck = firebase.database().ref('/reset tokens')
+		tokenCheck.on("value", function(snapshot) {
+			tokenCheck = snapshot.val();
+		});
+	} while (checkEntry(tokenCheck, token));
 	writeToDatabase('/reset tokens', document.getElementById('username'), token)
-	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":document.getElementById('username'),"token":token})
+	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":username,"token":token})
   }
 }
 
