@@ -30,16 +30,30 @@ function signUp() {
 		
 	}
   //check username field
-  var usernameExistCheck = firebase.database().ref('/usernames');
-  usernameExistCheck.on("value", function(snapshot) {
-    usernameExistCheck = snapshot.val();
+  var userExistCheck = firebase.database().ref('/usernames');
+  userExistCheck.on("value", function(snapshot) {
+    userExistCheck = snapshot.val();
   });
-  usernameExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
+  userExistCheck = checkEntry(usernameExistCheck, document.getElementById('username').value);
+  var emailExistCheck = firebase.database().ref('/emails');
+  emailExistCheck.on("value", function(snapshot) {
+	  emailExistCheck = snapshot.val();
+  });
+  emailExistCheck = checkEntry(emailExistCheck, document.getElementById('username').value);
+  if (emailExistCheck || userExistCheck) {
+    var usernameExistCheck = true;
+	} else {
+		var usernameExistCheck = false;
+	}
   //if statements
   if (document.getElementById('username').value=="") {
-    document.getElementById('usernameError').innerHTML = "The username field can't be blank!"
+    document.getElementById('usernameError').innerHTML = "The username/email field can't be blank!"
   } else if (usernameExistCheck==false) {
-    document.getElementById('usernameError').innerHTML = "Username incorrect!"
+		if (userExistCheck) {
+    	document.getElementById('usernameError').innerHTML = "Username incorrect!";
+		} else if (emailExistCheck) {
+    	document.getElementById('usernameError').innerHTML = "Email incorrect!";
+		};
   } else {
     document.getElementById('usernameError').innerHTML = ""
     var usernameField = true;
