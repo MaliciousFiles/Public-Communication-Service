@@ -61,7 +61,9 @@ function signUp() {
   });
   if (passwordExistCheck[document.getElementById('username').value]==hash(document.getElementById('password').value)) {
         passwordExistCheck=true;
-    };
+  } else {
+    	passwordExistCheck=false;
+  };
   //if statements
   if (document.getElementById('password').value=="") {
     document.getElementById('passwordError').innerHTML = "The password field can't be blank!"
