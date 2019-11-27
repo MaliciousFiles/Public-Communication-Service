@@ -8,10 +8,27 @@ function resetPass() {
                     hash = hash & hash; 
                 } 
                 return hash; 
-            } 
+            }
+    function getKeyByValue(object, value) {
+	    for( var prop in object ) {
+		if( object.hasOwnProperty( prop ) ) {
+		     if( object[ prop ] === value )
+			 return prop;
+		}
+	    }
+	}
+    function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
 	function writeToDatabase(path,username,value) {
 		firebase.database().ref(path+'/'+username).set(value);
 	}
+	//get token
+	var token = getUrlVars()['token']
 	//password field
 	var passwordField = false
 	if (document.getElementById('password').value=="") {
@@ -37,8 +54,12 @@ function resetPass() {
 		passwordCheckField = true
 	};
 	if (passwordField==true && passwordCheckField==true) {
+		var username = firebase.database().ref('/reset tokens')
+		username.on('value', function(snapshot) {username=snapshot.val()})
+		username = getKeyByValue(username, token)
 		var password=hash(document.getElementById('password').value);
-		writeToDatabase('/passwords',window.username,password);
+		writeToDatabase('/passwords',username,password);
+		firebase.database().ref('/reset tokens/'+username).remove()
 		window.location.href = "./commWebLogin.html"
 	}
 }
