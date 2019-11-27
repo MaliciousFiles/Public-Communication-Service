@@ -100,7 +100,7 @@ function sendEmail () {
 			tokenCheck = snapshot.val();
 		});
 	} while (checkEntry(tokenCheck, token));
-	writeToDatabase('/reset tokens', document.getElementById('username'), token)
+	writeToDatabase('/reset tokens', document.getElementById('username').value, token)
 	emailjs.send("gmail", "forgot_password", {"to":document.getElementById('email'),"user":username,"token":token})
   }
 }
