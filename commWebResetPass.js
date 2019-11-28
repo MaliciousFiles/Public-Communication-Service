@@ -3,6 +3,8 @@ firebase.database().ref('/').on("value", function(snapshot) {
 		var temp=snapshot.val()[item]
 	})
 });
+function wait() {}
+setInterval(wait, 2500)
 function getUrlVars() {
 		var vars = {};
 		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
