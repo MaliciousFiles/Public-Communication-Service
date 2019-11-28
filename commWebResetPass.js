@@ -25,17 +25,6 @@ function checkEntry(dict,entry) {
 			}
 		
 	}
-var tokenCheck = firebase.database().ref('/reset tokens')
-tokenCheck.on('value', function(snapshot) {
-	tokenDict=snapshot.val();
-})
-console.log(tokenDict)
-if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
-	document.getElementById('input').setAttribute('class', '')
-	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
-	document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
-	document.getElementById('input').setAttribute('id', '');
-}
 firebase.database().ref('/usernames/""').set("")
 firebase.database().ref('/first names/""').set("")
 firebase.database().ref('/last names/""').set("")
@@ -44,6 +33,17 @@ firebase.database().ref('/passwords/""').set("")
 firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
+var tokenCheck = firebase.database().ref('/reset tokens')
+tokenCheck.on('value', function(snapshot) {
+	window.tokenDict=snapshot.val();
+})
+console.log(window.tokenDict);
+if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
+	document.getElementById('input').setAttribute('class', '')
+	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
+	document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
+	document.getElementById('input').setAttribute('id', '');
+}
 function resetPass() {
 	function hash(string) { 
                 var hash = 0; 
