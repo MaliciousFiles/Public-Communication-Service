@@ -27,11 +27,10 @@ function checkEntry(dict,entry) {
 	}
 var tokenCheck = firebase.database().ref('/reset tokens')
 tokenCheck.on('value', function(snapshot) {
-	tokenCheck=snapshot.val();
-	console.log(snapshot.val());
+	var tokenDict=snapshot.val();
 })
-console.log(tokenCheck)
-if (checkEntry(tokenCheck, getUrlVars()['token'])==false) {
+console.log(tokenDict)
+if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
 	document.getElementById('input').setAttribute('class', '')
 	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
 	document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
