@@ -27,6 +27,7 @@ function checkEntry(dict,entry) {
 	}
 var tokenCheck = firebase.database().ref('/reset tokens')
 tokenCheck.on('value', function(snapshot) {tokenCheck=snapshot.val()})
+console.log(tokenCheck)
 if (checkEntry(tokenCheck, getUrlVars()['token'])==false) {
 	document.getElementById('input').setAttribute('class', '')
 	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
