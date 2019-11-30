@@ -35,9 +35,9 @@ firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
 var tokenCheck = firebase.database().ref('/reset tokens')
 tokenCheck.on('value', function(snapshot) {
-	window.tokenDict=snapshot.val();
+	tokenCheck=snapshot.val();
 })
-console.log(window.tokenDict);
+console.log(tokenCheck);
 if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
 	document.getElementById('input').setAttribute('class', '')
 	document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
