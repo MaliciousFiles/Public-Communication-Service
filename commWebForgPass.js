@@ -108,6 +108,7 @@ function resetPass() {
 		});
 	} while (checkEntry(tokenCheck, token));
 	writeToDatabase('/reset tokens', username, token)
+	writeToDatabase('/reset times', token, 0)
 	emailjs.send("gmail", "forgot_password", {"to":email,"user":username,"token":token})
   	function move() {window.location.href = "./commWebLogin.html"}
   	document.getElementById('recoverButton').innerHTML = 'Sending...'
