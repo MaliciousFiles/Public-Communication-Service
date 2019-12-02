@@ -51,10 +51,10 @@ function checkTimes() {
 				firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
 			} else {
 				if (tokenTimeCheck[key]!="") {
-					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+10)
 				}
 			}
 		})
 	})
 }
-setInterval(checkTimes, 1000)
+setInterval(checkTimes, 10000)
