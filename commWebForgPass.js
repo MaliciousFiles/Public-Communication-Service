@@ -132,12 +132,9 @@ function checkTimes() {
 			if (passedSeconds >= 86400) {
 				firebase.database().ref('/reset times/'+key).remove()
 				firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
-			} else {
-				if (tokenTimeCheck[key] != "") {
-					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
-				}
 			}
 		})
 	})
 }
 setInterval(checkTimes, 1000)
+
