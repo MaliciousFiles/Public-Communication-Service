@@ -129,6 +129,6 @@ function checkTimes() {
 				}
 			}
 		})
-	}
+	})
 }
 setInterval(checkTimes, 1000)
