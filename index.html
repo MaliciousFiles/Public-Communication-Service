@@ -3,7 +3,7 @@
 		<link rel="stylesheet" href="./commWeb.css">
 		<link rel="shortcut icon" href="./commWebLogo.png">
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+		<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-0LLEX8LB45&amp;l=dataLayer&amp;cx=c"></script><script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 
 		<!-- TODO: Add SDKs for Firebase products that you want to use
 		     https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -31,7 +31,7 @@
 		  // Sign in
 		  const auth = firebase.auth();
 		  data = firebase.database();
-		</script>
+		</script><script src="https://www.googletagmanager.com/gtag/js?l=dataLayer" async=""></script>
 	</head>
 	<body data-gr-c-s-loaded="true">
 		<ul class="navBar" style="top: -999px;">
@@ -48,16 +48,17 @@
 		<p class="explainBG" id="explainTop">At Public Communication Service,</p>
 		<p class="explainBG" id="explainIndent">we believe in and provide a communications</p>
 		<p class="explainBG">platform for all</p>
+    	<a href="#slideshowBR" style="color: white">⌄</a>
 	</div>
-    <br>
+    <br id="slideshowBR">
 	<div class="slideshow">
 		<div class="slide" style="display: none;">
 			<img src="./communicationSlide.png">
 		</div>
-		<div class="slide" style="display: none;">
+		<div class="slide" style="display: block;">
 			<img src="./Signup.png">
 		</div>
-		<div class="slide" style="display: block;">
+		<div class="slide" style="display: none;">
 			<img src="">
 		</div>
 		<a class="slideChange" onclick="changeSlide(-1)">❮</a>
@@ -65,11 +66,12 @@
 		<br>
 		<div>
 		    <span class="slideDot fade" onclick="setSlide(1)" id="dot1"></span>
-		    <span class="slideDot fade" onclick="setSlide(2)"></span>
-		    <span class="slideDot fade active" onclick="setSlide(3)"></span>
+		    <span class="slideDot fade active" onclick="setSlide(2)"></span>
+		    <span class="slideDot fade" onclick="setSlide(3)"></span>
 		</div>
 	</div>
  	<script src="./home.js"></script>
+
 
 
 
