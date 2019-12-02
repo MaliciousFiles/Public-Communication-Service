@@ -33,22 +33,17 @@ firebase.database().ref('/passwords/""').set("")
 firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
-function validateToken() {
-	tokenCheck = firebase.database().ref('/reset tokens');
-	tokenCheck.on('value', function(snapshot) {
-		tokenCheck=snapshot.val();
-		console.log(tokenCheck);
-	})
-	console.log(tokenCheck);
+
+tokenCheck = firebase.database().ref('/reset tokens');
+tokenCheck.on('value', function(snapshot) {
+	tokenCheck=snapshot.val();
 	if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
 		document.getElementById('input').setAttribute('class', '')
 		document.getElementById('input').setAttribute('style', 'top: 5vh;left: 13%;position: fixed;padding: 20px;')
 		document.getElementById('input').innerHTML = '<center><h2 style="font-size: 150px;">Invalid code!</h2></center>'
 		document.getElementById('input').setAttribute('id', '');
 	}
-}
-
-validateToken()
+})
 
 function resetPass() {
 	function hash(string) { 
