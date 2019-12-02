@@ -34,9 +34,10 @@ firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
 function validateToken() {
-	tokenCheck = firebase.database().ref('/reset tokens')
+	tokenCheck = firebase.database().ref('/reset tokens');
 	tokenCheck.on('value', function(snapshot) {
 		tokenCheck=snapshot.val();
+		console.log(tokenCheck);
 	})
 	console.log(tokenCheck);
 	if (checkEntry(tokenDict, getUrlVars()['token'])==false) {
