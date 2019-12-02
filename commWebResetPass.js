@@ -133,11 +133,20 @@ function checkTimes() {
 	tokenTimeCheck.on('value', function(snapshot) {
 		tokenTimeCheck=snapshot.val()
 		Object.keys(tokenTimeCheck).forEach(function(key) {
-			if (tokenTimeCheck[key] >= 86400) {
-				firebase.database().ref('/reset times/'+key).remove()
-				firebase.database().ref('/reset tokens/'+user).remove()
+			var currentTime = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
+			var setTime = tokenTimeCheck[key]
+			if (currentTime['day'] > setTime['day']) {
+				var passedSeconds = 86400-setTime['second'] + currentTime['second']
 			} else {
-				firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+				var passedSeconds = currentTime['second']-setTime['second']
+			}
+			if (passedSeconds >= 86400) {
+				firebase.database().ref('/reset times/'+key).remove()
+				firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+			} else {
+				if (tokenTimeCheck[key] != "") {
+					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+				}
 			}
 		})
 	})
