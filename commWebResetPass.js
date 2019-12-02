@@ -111,14 +111,34 @@ function resetPass() {
 	}
 }
 function checkTimes() {
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+	function getKeyByValue(object, value) {
+	    for( var prop in object ) {
+		if( object.hasOwnProperty( prop ) ) {
+		     if( object[ prop ] === value )
+			 return prop;
+		}
+	    }
+	}
+	var user = firebase.database().ref('/reset tokens')
+	user.on('value', function(snapshot) {username=snapshot.val()})
+	user = getKeyByValue(user, getUrlVars()['token'])
 	var tokenTimeCheck = firebase.database().ref('/reset times')
-	tokenTimeCheck.on('value', function(snapshot) {tokenTimeCheck=snapshot.val()})
-	Object.keys(tokenTimeCheck).forEach(function(key) {
-		if (tokenTimeCheck[key] >= 86400) {
-			firebase.database().ref('/reset times/'+key).remove()
-		} else {
-			if (tokenTimeCheck[key]!="") {
-				firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+	tokenTimeCheck.on('value', function(snapshot) {tokenTimeCheck=snapshot.val()
+		Object.keys(tokenTimeCheck).forEach(function(key) {
+			if (tokenTimeCheck[key] >= 86400) {
+				firebase.database().ref('/reset times/'+key).remove()
+				firebase.database().ref('/reset tokens/'+user).remove()
+			} else {
+				if (tokenTimeCheck[key]!="") {
+					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
+				}
 			}
 		}
 	})
