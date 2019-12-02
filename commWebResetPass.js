@@ -128,17 +128,16 @@ function checkTimes() {
 	}
 	var user = firebase.database().ref('/reset tokens')
 	user.on('value', function(snapshot) {username=snapshot.val()})
-	user = getKeyByValue(user, getUrlVars()['token'])
+	user = getKeyByValue(username, getUrlVars()['token'])
 	var tokenTimeCheck = firebase.database().ref('/reset times')
-	tokenTimeCheck.on('value', function(snapshot) {tokenTimeCheck=snapshot.val()
+	tokenTimeCheck.on('value', function(snapshot) {
+		tokenTimeCheck=snapshot.val()
 		Object.keys(tokenTimeCheck).forEach(function(key) {
 			if (tokenTimeCheck[key] >= 86400) {
 				firebase.database().ref('/reset times/'+key).remove()
 				firebase.database().ref('/reset tokens/'+user).remove()
 			} else {
-				if (tokenTimeCheck[key]!="") {
-					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
-				}
+				firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
 			}
 		})
 	})
