@@ -128,7 +128,7 @@ function checkTimes() {
 					firebase.database().ref('/reset times/'+key).set(tokenTimeCheck[key]+1)
 				}
 			}
-		}
-	})
+		})
+	}
 }
 setInterval(checkTimes, 1000)
