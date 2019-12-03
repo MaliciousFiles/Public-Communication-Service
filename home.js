@@ -2,8 +2,11 @@ document.getElementsByClassName('navBar')[0].style.top = "-999px";
 window.onscroll = function() {
   if (window.pageYOffset > 500) {
     document.getElementsByClassName('navBar')[0].style.top = "0px";
+    document.getElementsByClassName('scrollDButton')[0].style.bottom="-9999999999999999";
   } else {
     document.getElementsByClassName('navBar')[0].style.top = "-999px";
+    document.getElementsByClassName('scrollDButton')[0].style.bottom="0";
+
   };
 }
 function sleep (time) {
