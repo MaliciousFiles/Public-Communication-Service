@@ -48,14 +48,14 @@
 		<p class="explainBG" id="explainTop">At Public Communication Service,</p>
 		<p class="explainBG" id="explainIndent">we believe in and provide a communications</p>
 		<p class="explainBG">platform for all</p>
-    	<a href="#slideshowBR" style="color: white;text-decoration:none;position:fixed;padding-bottom:2vh;font-size:50px;background-color:rgb(24,30,54,.25);width: 100%;bottom:0;float:center;">⌄</a>
+    	<a href="#slideshowBR" class="scrollDButton"><p>⌄</p></a>
 	</div>
     <br id="slideshowBR">
 	<div class="slideshow">
-		<div class="slide" style="display: none;">
+		<div class="slide" style="display: block;">
 			<img src="./communicationSlide.png">
 		</div>
-		<div class="slide" style="display: block;">
+		<div class="slide" style="display: none;">
 			<img src="./Signup.png">
 		</div>
 		<div class="slide" style="display: none;">
@@ -65,12 +65,13 @@
 		<a class="slideChange" id="next" onclick="changeSlide(1)">❯</a>
 		<br>
 		<div>
-		    <span class="slideDot fade" onclick="setSlide(1)" id="dot1"></span>
-		    <span class="slideDot fade active" onclick="setSlide(2)"></span>
+		    <span class="slideDot fade active" onclick="setSlide(1)" id="dot1"></span>
+		    <span class="slideDot fade" onclick="setSlide(2)"></span>
 		    <span class="slideDot fade" onclick="setSlide(3)"></span>
 		</div>
 	</div>
  	<script src="./home.js"></script>
+
 
 
 
