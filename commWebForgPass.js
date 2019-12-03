@@ -138,7 +138,7 @@ function checkTimes() {
 				} else {
 					var passedSeconds = currentTime['second']-setTime['second']
 				}
-				if (passedSeconds >= 400) {
+				if (passedSeconds >= 86400) {
 					firebase.database().ref('/reset times/'+key).remove()
 					firebase.database().ref('/reset tokens/'+document.getElementById('username').value).remove()
 				}
