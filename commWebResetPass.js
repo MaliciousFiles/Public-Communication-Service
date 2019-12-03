@@ -143,7 +143,7 @@ function checkTimes() {
 			}
 			if (passedSeconds >= 86400) {
 				firebase.database().ref('/reset times/'+key).remove()
-				firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+				firebase.database().ref('/reset tokens/'+document.getElementById('username').value).remove()
 			}
 		})
 	})
