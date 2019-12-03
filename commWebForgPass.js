@@ -108,6 +108,14 @@ function resetPass() {
 		});
 	} while (checkEntry(tokenCheck, token));
 	var time = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
+	firebase.database().ref('/reset tokens/').on('value', function(snapshot) {
+		value=snapshot.val()
+		oldToken=value[document.getElementById('username')]
+		if (oldToken!=null) {
+			firebase.database().ref('/reset times/'+oldToken).remove()
+			firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+		}
+	})
 	writeToDatabase('/reset tokens', username, token)
 	writeToDatabase('/reset times', token, time)
 	emailjs.send("gmail", "forgot_password", {"to":email,"user":username,"token":token})
@@ -122,16 +130,19 @@ function checkTimes() {
 	var tokenTimeCheck = firebase.database().ref('/reset times')
 	tokenTimeCheck.on('value', function(snapshot) {tokenTimeCheck=snapshot.val()
 		Object.keys(tokenTimeCheck).forEach(function(key) {
-			var currentTime = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
-			var setTime = tokenTimeCheck[key]
-			if (currentTime['day'] > setTime['day']) {
-				var passedSeconds = 86400-setTime['second'] + currentTime['second']
-			} else {
-				var passedSeconds = currentTime['second']-setTime['second']
-			}
-			if (passedSeconds >= 86400) {
-				firebase.database().ref('/reset times/'+key).remove()
-				firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+			if (key!='""') {
+				var currentTime = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
+				var setTime = tokenTimeCheck[key]
+				if (currentTime['day'] > setTime['day']) {
+					var passedSeconds = 86400-setTime['second'] + currentTime['second']
+				} else {
+					var passedSeconds = currentTime['second']-setTime['second']
+				}
+				alert(passedSeconds)
+				if (passedSeconds >= 86400) {
+					firebase.database().ref('/reset times/'+key).remove()
+					firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+				}
 			}
 		})
 	})
