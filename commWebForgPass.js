@@ -134,13 +134,13 @@ function checkTimes() {
 				var currentTime = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
 				var setTime = tokenTimeCheck[key]
 				if (currentTime['day'] > setTime['day']) {
-					var passedSeconds = 86400*(currentTime['day']-setTime['day'])-setTime['second'] + currentTime['second']
+					var passedSeconds = 86400-setTime['second'] + currentTime['second']
 				} else {
 					var passedSeconds = currentTime['second']-setTime['second']
 				}
 				if (passedSeconds >= 400) {
 					firebase.database().ref('/reset times/'+key).remove()
-					firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
+					firebase.database().ref('/reset tokens/'+document.getElementById('username').value).remove()
 				}
 			}
 		})
