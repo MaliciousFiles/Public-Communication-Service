@@ -107,6 +107,7 @@ function resetPass() {
 		var password=hash(document.getElementById('password').value);
 		writeToDatabase('/passwords',username,password);
 		firebase.database().ref('/reset tokens/'+username).remove()
+		firebase.database().ref('/reset times/'+token).remove()
 		window.location.href = "./commWebLogin.html"
 	}
 }
