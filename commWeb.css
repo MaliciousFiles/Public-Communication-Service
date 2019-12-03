@@ -141,6 +141,21 @@ p#explainTop.explainBG {
 p#explainIndent.explainBG {
 	padding-left:15vw;
 }
+
+.bg a.scrollDButton {
+	color: white;
+	text-decoration:none;
+	position:fixed;
+	font-size:50px;
+	background-color:rgba(24, 30, 54, 0.5);
+	width: 100%;
+	bottom: 0;
+}
+
+.bg a.scrollDButton p {
+	padding-left: 50%;
+}
+
 /*--------------------------------------*/
 
 .input {
