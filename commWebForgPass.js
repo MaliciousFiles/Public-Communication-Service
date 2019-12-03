@@ -110,7 +110,7 @@ function resetPass() {
 	var time = {'day':new Date().getUTCDate(), 'second':new Date().getUTCHours()*3600+new Date().getUTCMinutes()*60+new Date().getUTCSeconds()}
 	firebase.database().ref('/reset tokens/').on('value', function(snapshot) {
 		value=snapshot.val()
-		oldToken=value[document.getElementById('username')]
+		oldToken=value[document.getElementById('username').value]
 		if (oldToken!=null) {
 			firebase.database().ref('/reset times/'+oldToken).remove()
 			firebase.database().ref('/reset tokens/'+document.getElementById('username')).remove()
