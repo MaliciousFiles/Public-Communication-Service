@@ -11,6 +11,7 @@ firebase.database().ref('/passwords/""').set("")
 firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
+firebase.database().ref('/UIDs/""').set("")
 function signUp() {
   function hash(string) { 
                 var hash = 0; 
@@ -79,9 +80,9 @@ function signUp() {
     document.getElementById('passwordError').innerHTML = ""
     var passwordField = true;
   };
-	if (passwordField==true && usernameField==true) {
-		firebase.database().ref('/UIDS/'+document.getElementById('username').value).on('value', function(snapshot) {
-			document.cookie = "username="+snapshot.val()+"; path=/";
+if (passwordField==true && usernameField==true) {
+		firebase.database().ref('/UIDs/'+document.getElementById('username').value).on('value', function(snapshot) {
+			document.cookie = "user="+snapshot.val()[document.getElementById('username')]+"; path=/";
 		})
     window.location.href = "./commWebDashboard.html";
   }
