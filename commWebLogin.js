@@ -80,6 +80,7 @@ function signUp() {
     var passwordField = true;
   };
   if (passwordField==true && usernameField==true) {
+	  document.cookie = "username="+document.getElementById('username')+"; path=/";
     window.location.href = "./commWebDashboard.html";
   }
 }
