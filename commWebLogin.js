@@ -79,8 +79,10 @@ function signUp() {
     document.getElementById('passwordError').innerHTML = ""
     var passwordField = true;
   };
-  if (passwordField==true && usernameField==true) {
-	  document.cookie = "username="+document.getElementById('username')+"; path=/";
+	if (passwordField==true && usernameField==true) {
+		firebase.database().ref('/UIDS/'+document.getElementById('username').value).on('value', function(snapshot) {
+			document.cookie = "username="+snapshot.val()+"; path=/";
+		})
     window.location.href = "./commWebDashboard.html";
   }
 }
