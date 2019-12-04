@@ -11,6 +11,7 @@ firebase.database().ref('/passwords/""').set("")
 firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
+firebase.database().ref('/UIDs/""').set("")
 function checkForEntry() {
 	function hash(string) { 
                 var hash = 0; 
@@ -42,6 +43,17 @@ function checkForEntry() {
 				return false
 			}
 		
+	}
+	function getUid() {
+		var uidCheck = firebase.database().ref('/UIDs').on('value', function(snapshot) {
+	    do {
+				var uid=""
+				for (var i=0;i<999999;i++) {
+					uid+=String(~~(Math.random() * 10))
+				}
+			} while (checkEntry(snapshot.val(), uid));
+		})
+		return uid
 	}
 	//Start checks for username field
 	//look for username
@@ -133,7 +145,9 @@ function checkForEntry() {
 		writeToDatabase('/emails',username,email);
 		writeToDatabase('/passwords',username,password);
 		writeToDatabase('/profile images',username,'./newUserImg.png');
-		document.cookie = "username="+document.getElementById('username').value+"; path=/";
+		var newUid=getUid()
+		writeToDatabase('/UIDs',username,newUid)
+		document.cookie = "user="+newUid+"; path=/";
 		window.location.href = "./commWebDashboard.html";
 	};
 }
