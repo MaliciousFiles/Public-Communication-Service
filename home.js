@@ -1,3 +1,12 @@
+firebase.database().ref('/usernames/""').set("")
+firebase.database().ref('/first names/""').set("")
+firebase.database().ref('/last names/""').set("")
+firebase.database().ref('/emails/""').set("")
+firebase.database().ref('/passwords/""').set("")
+firebase.database().ref('/profile images/""').set("")
+firebase.database().ref('/reset tokens/""').set("")
+firebase.database().ref('/reset times/""').set("")
+firebase.database().ref('/UIDs/""').set("")
 document.getElementsByClassName('navBar')[0].style.top = "-999px";
 window.onscroll = function() {
   if (window.pageYOffset > 500) {
