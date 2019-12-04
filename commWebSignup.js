@@ -133,6 +133,7 @@ function checkForEntry() {
 		writeToDatabase('/emails',username,email);
 		writeToDatabase('/passwords',username,password);
 		writeToDatabase('/profile images',username,'./newUserImg.png');
+		document.cookie = "username="+document.getElementById('username').value+"; path=/";
 		window.location.href = "./commWebDashboard.html";
 	};
 }
