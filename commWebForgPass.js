@@ -11,6 +11,7 @@ firebase.database().ref('/passwords/""').set("")
 firebase.database().ref('/profile images/""').set("")
 firebase.database().ref('/reset tokens/""').set("")
 firebase.database().ref('/reset times/""').set("")
+firebase.database().ref('/UIDs/""').set("")
 function resetPass() {
 	firebase.database().ref('/usernames/""').set("")
 	firebase.database().ref('/first names/""').set("")
