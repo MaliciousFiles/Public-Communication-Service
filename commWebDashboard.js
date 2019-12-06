@@ -34,6 +34,6 @@ var user=getCookie('username')
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   var username=getKeyByValue(snapshot.val, getCookie('username'))
   firebase.database().ref('/profile images/').on('value', function(snapshot) {
-    document.getElementById('profileImage').setAttribute('src', snapshot.val()[username])
+    document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[username])
   })
 })
