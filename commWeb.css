@@ -264,12 +264,53 @@ img.logo {
 	margin-right: 5px
 }
 
+.dropMenu {
+  float: right;
+  overflow: hidden;
+}
+
+.dropMenu {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.dropCont {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 57px;
+}
+
+.dropCont a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+/* Add a grey background color to dropMenu links on hover */
+.dropCont a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropMenu menu on hover */
+.dropMenu:hover .dropCont {
+  display: block;
+}
+
 img.profileImage {
 	width: 57.5px;
 	height: 57.5px;
 	float: right;
 	margin-right: 15px;
-
 }
 
 /*--------------------------------------*/
