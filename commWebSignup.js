@@ -48,7 +48,7 @@ function checkForEntry() {
 		var uidCheck = firebase.database().ref('/UIDs').on('value', function(snapshot) {
 	    do {
 				var uid=""
-				for (var i=0;i<999999;i++) {
+				for (var i=0;i<20;i++) {
 					uid+=String(~~(Math.random() * 10))
 				}
 			} while (checkEntry(snapshot.val(), uid));
