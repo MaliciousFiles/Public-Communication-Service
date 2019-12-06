@@ -22,4 +22,18 @@ function getCookie(cname) {
   }
   return "";
 }
+function getKeyByValue(object, value) {
+	    for( var prop in object ) {
+		if( object.hasOwnProperty( prop ) ) {
+		     if( object[ prop ] === value )
+			 return prop;
+		}
+	    }
+	}
 var user=getCookie('username')
+firebase.database().ref('/UIDs').on('value', function(snapshot) {
+  var username=getKeyByValue(snapshot.val, getCookie('username'))
+  firebase.database().ref('/profile images/').on('value', function(snapshot) {
+    document.getElementById('profileImage').setAttribute('src', snapshot.val()[username])
+  })
+})
