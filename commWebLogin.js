@@ -84,7 +84,7 @@ if (passwordField==true && usernameField==true) {
 		firebase.database().ref('/UIDs/'+document.getElementById('username').value).on('value', function(snapshot) {
 			document.cookie = "user="+snapshot.val()[document.getElementById('username')]+"; path=/";
 		})
-    window.location.href = "./commWebDashboard.html";
+    window.location.href = "./commWebDashboard";
   }
 }
 function checkTimes() {
