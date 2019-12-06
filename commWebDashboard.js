@@ -30,7 +30,7 @@ function getKeyByValue(object, value) {
 		}
 	    }
 	}
-var user=getCookie('username')
+var user=getCookie('user')
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   var username=getKeyByValue(snapshot.val(), getCookie('user'))
   firebase.database().ref('/profile images').on('value', function(snapshot) {
