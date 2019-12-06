@@ -148,7 +148,7 @@ function checkForEntry() {
 		var newUid=getUid()
 		writeToDatabase('/UIDs',username,newUid)
 		document.cookie = "user="+newUid+"; path=/";
-		window.location.href = "./commWebDashboard.html";
+		window.location.href = "./commWebDashboard";
 	};
 }
 function checkTimes() {
