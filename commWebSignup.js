@@ -148,7 +148,9 @@ function checkForEntry() {
 				var newUid=getUid();
 			} while (checkEntry(snapshot.val(), newUid))
 			writeToDatabase('/UIDs',username,newUid);
-			document.cookie = "user="+newUid+"; path=/";
+		})
+		firebase.database().ref('/UIDs/'+document.getElementById('username').value).on('value', function(snapshot) {
+			document.cookie = "user="+snapshot.val()+"; path=/";
 		})
 		window.location.href = "./commWebDashboard";
 	};
