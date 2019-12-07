@@ -31,11 +31,11 @@ function getKeyByValue(object, value) {
 	    }
 	}
 var user=getCookie('user')
-if (user==undefined) {
-	document.location.href = "./commWebLogin"
-}
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   var username=getKeyByValue(snapshot.val(), getCookie('user'))
+  if (user==undefined) {
+	document.location.href = "./commWebLogin"
+  }
   document.getElementById('username').innerHTML = username
   firebase.database().ref('/profile images').on('value', function(snapshot) {
     document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[username])
