@@ -257,7 +257,11 @@ p#explainIndent.explainBG {
 	background: rgb(249, 106, 0);
 }
 
-.dashBar li a {
+.dashBar li a.notFilledIn {
+	float: left;
+}
+
+.dashBar li a.filledIn {
 	float: left;
 }
 
