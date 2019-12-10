@@ -259,6 +259,7 @@ p#explainIndent.explainBG {
 
 .dashBar li {
 	float: right;
+	margin-left: 5px;
 }
 
 img.logo {
