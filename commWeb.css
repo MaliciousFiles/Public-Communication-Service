@@ -257,7 +257,7 @@ p#explainIndent.explainBG {
 	background: rgb(249, 106, 0);
 }
 
-.dashBar li {
+.dashBar li a {
 	float: left;
 }
 
