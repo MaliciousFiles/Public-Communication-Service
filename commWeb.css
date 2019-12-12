@@ -93,9 +93,6 @@ body {
 	margin-top: 10vh;
 	margin-left: 35vh;
 	cursor: pointer;
-}
-
-.bg button {
 	font-size: 27.5px;
 	border-radius: 8px;
 	background-color: rgb(50, 50, 90,.4);
@@ -103,6 +100,7 @@ body {
 	color: white;
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
+	padding: 7.5px 12.5px;
 }
 
 .bg button:hover {
