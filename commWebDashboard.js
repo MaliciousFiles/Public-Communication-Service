@@ -32,6 +32,7 @@ function getKeyByValue(object, value) {
 	}
 var user=getCookie('user')
 if (user==undefined || user=="") {
+	alert("Please log in!")
 	document.location.href = "./commWebLogin"
 }
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
