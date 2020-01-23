@@ -42,3 +42,7 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
     document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[username])
   })
 })
+
+if (document.getElementById("notificationCont").innerHTML=="") {
+    document.getElementById("notificationCont").innerHTML="<img /><p>Nothing to see here!</p>"
+}
