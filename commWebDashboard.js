@@ -44,5 +44,5 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
 })
 
 if (document.getElementById("notificationCont").innerHTML=="") {
-    document.getElementById("notificationCont").innerHTML="<img src='./noNotifications.png' /><br><p style='color: black'>Nothing to see here!</p>"
+    document.getElementById("notificationCont").innerHTML="<img src=\"./noNotifications.png\" style=\"width: 225;height:160\"><br><a href=\"javascript:void(0)\" onclick=\"javascript:window.close('','_parent','');\" style=\"color: black\">No notifications, play outside!</a>"
 }
