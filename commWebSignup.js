@@ -68,7 +68,7 @@ function checkForEntry() {
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
 		username=document.getElementById('username').innerHTML
-		firebase.database().ref('/notifications/%u/""', username).set("");
+		firebase.database().ref('/notifications/'+username+'/""').set("");
 		userField = true
 	};
 	//start checks for first name field
