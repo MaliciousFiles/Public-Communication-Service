@@ -105,6 +105,7 @@ function resetPass() {
 		var username = firebase.database().ref('/reset tokens')
 		username.on('value', function(snapshot) {username=snapshot.val()})
 		username = getKeyByValue(username, token)
+		firebase.database().ref('/notifications/%u/""', username).set("");
 		var password=hash(document.getElementById('password').value);
 		writeToDatabase('/passwords',username,password);
 		firebase.database().ref('/reset tokens/'+username).remove()
