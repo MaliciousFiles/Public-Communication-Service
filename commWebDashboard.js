@@ -37,7 +37,7 @@ if (user==undefined || user=="") {
 }
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   var username=getKeyByValue(snapshot.val(), getCookie('user'))
-  firebase.database().ref('/notifications/%s/""', username).set("")
+  firebase.database().ref('/notifications/'+username+'/""').set("")
   document.getElementById('username').innerHTML = username
   firebase.database().ref('/profile images').on('value', function(snapshot) {
     document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[username])
