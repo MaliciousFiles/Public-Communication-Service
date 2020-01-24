@@ -93,7 +93,7 @@ function resetPass() {
 	if (username==null) {
 		username=document.getElementById('username').value
 	};
-	firebase.database().ref('/notifications/%u/""', username).set("")
+	firebase.database().ref('/notifications/'+username+'/""').set("")
 	var email = firebase.database().ref("/emails")
 	email.on('value', function(snapshot) {
 		email = snapshot.val();
