@@ -67,6 +67,8 @@ function checkForEntry() {
 		document.getElementById('usernameError').innerHTML = "That username is already registered!"
 	} else {
 		document.getElementById('usernameError').innerHTML = ""
+		username=document.getElementById('username').innerHTML
+		firebase.database().ref('/notifications/%u/""', username).set("");
 		userField = true
 	};
 	//start checks for first name field
