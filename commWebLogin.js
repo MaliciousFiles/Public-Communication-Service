@@ -41,7 +41,7 @@ function signUp() {
   userExistCheck.on("value", function(snapshot) {
     userExistCheck = snapshot.val();
   });
-	username=document.getElementById('username').value);
+	username=document.getElementById('username').value;
 	firebase.database().ref('/notifications/'+username+'/""').set("");
   userExistCheck = checkEntry(userExistCheck, document.getElementById('username').value);
   var emailExistCheck = firebase.database().ref('/emails');
