@@ -37,8 +37,6 @@ if (user==undefined || user=="") {
 }
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   window.username=getKeyByValue(snapshot.val(), getCookie('user'))
-  console.log(window.username)
-  alert(window.username)
   firebase.database().ref('/notifications/'+window.username+'/""').set("")
   document.getElementById('username').innerHTML = window.username
   firebase.database().ref('/profile images').on('value', function(snapshot) {
@@ -49,6 +47,7 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
 firebase.database().ref("/notifications/"+window.username).on("value", function(snapshot) {
     window.notifications=snapshot.val()
 })
+firebase.database().ref('/notifications/'+window.username+'/""').set("")
 delete window.notifications['""']
 var notificationNum=-1
 var senders=[]
