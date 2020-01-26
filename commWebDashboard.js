@@ -36,13 +36,43 @@ if (user==undefined || user=="") {
 	document.location.href = "./commWebLogin"
 }
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
-  var username=getKeyByValue(snapshot.val(), getCookie('user'))
-  firebase.database().ref('/notifications/'+username+'/""').set("")
-  document.getElementById('username').innerHTML = username
+  window.username=getKeyByValue(snapshot.val(), getCookie('user'))
+  firebase.database().ref('/notifications/'+window.username+'/""').set("")
+  document.getElementById('username').innerHTML = window.username
   firebase.database().ref('/profile images').on('value', function(snapshot) {
-    document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[username])
+    document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[window.username])
   })
 })
+
+firebase.database().ref("/notifications/"+window.username).on("value", function(snapshot) {
+    window.notifications=snapshot.val()
+})
+delete window.notifications['""']
+var notificationNum=-1
+var senders=[]
+var messages=[]
+for (sender in window.notifications) {
+    notificationNum++
+    senders.push(sender)
+    messages.push(notifications[sender])
+}
+for (let i=0;i<=notificationNum;i++) {
+	node=document.getElementById("notificationCont")
+	div=document.createElement("div")
+	ital=document.createElement("i")
+	ital.appendChild(document.createTextNode(senders[i]))
+	div.appendChild(ital)
+	br=document.createElement("br")
+	div.appendChild(br)
+	b=document.createElement("b")
+	b.appendChild(document.createTextNode())
+	div.appendChild(b)
+	node.appendChild(div)
+	div.onclick=function() {
+	    location.href="./commWebUserPage?user="+senders[i]
+	}
+	
+}
 
 if (document.getElementById("notificationCont").innerHTML=="") {
     document.getElementById("notificationCont").innerHTML="<a style=\"color: black;cursor:default;\">No notifications, go play outside!</a>"
