@@ -37,7 +37,6 @@ if (user==undefined || user=="") {
 }
 firebase.database().ref('/UIDs').on('value', function(snapshot) {
   window.username=getKeyByValue(snapshot.val(), getCookie('user'))
-  firebase.database().ref('/notifications/'+window.username+'/""').set("")
   document.getElementById('username').innerHTML = window.username
   firebase.database().ref('/profile images').on('value', function(snapshot) {
     document.getElementsByClassName('profileImage')[0].setAttribute('src', snapshot.val()[window.username])
@@ -45,7 +44,7 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
 })
 
 firebase.database().ref('/notifications/'+document.getElementById('username').innerHTML+'/""').set("")
-firebase.database().ref("/notifications/"+window.username).on("value", function(snapshot) {
+firebase.database().ref("/notifications/"+document.getElementById('username').innerHTML).on("value", function(snapshot) {
     window.notifications=snapshot.val()
 })
 delete window.notifications['""']
