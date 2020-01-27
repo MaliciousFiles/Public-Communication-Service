@@ -46,8 +46,8 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
 firebase.database().ref('/notifications/'+document.getElementById('username').innerHTML+'/""').set("")
 firebase.database().ref("/notifications/"+document.getElementById('username').innerHTML).on("value", function(snapshot) {
 	window.notifications=snapshot.val()
-	console.log(window.notifications)
-	alert(snapshot.val())
+	console.log(snapshot.val())
+	alert(window.notifications)
 })
 delete window.notifications[""]
 var notificationNum=-1
