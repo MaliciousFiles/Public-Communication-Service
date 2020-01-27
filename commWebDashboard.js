@@ -44,10 +44,10 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
   })
 })
 
+firebase.database().ref('/notifications/'+window.username+'/""').set("")
 firebase.database().ref("/notifications/"+window.username).on("value", function(snapshot) {
     window.notifications=snapshot.val()
 })
-firebase.database().ref('/notifications/'+window.username+'/""').set("")
 delete window.notifications['""']
 var notificationNum=-1
 var senders=[]
