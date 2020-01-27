@@ -44,7 +44,7 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
   })
 })
 
-firebase.database().ref('/notifications/'+username+'/""').set("")
+firebase.database().ref('/notifications/'+document.getElementById('username').innerHTML+'/""').set("")
 firebase.database().ref("/notifications/"+window.username).on("value", function(snapshot) {
     window.notifications=snapshot.val()
 })
