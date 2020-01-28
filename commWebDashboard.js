@@ -31,7 +31,7 @@ function getKeyByValue(object, value) {
 	    }
 	}
 var user=getCookie('user')
-if (user=="") || (user==undefined) {
+if (user=="" || user==undefined) {
 	alert("Please log in!")
 	document.location.href = "./commWebLogin"
 }
