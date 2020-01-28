@@ -43,13 +43,14 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
   })
 })
 
+if (document.getElementById('username').innerHTML != "RoalsonMalcolm") {
+	alert("It was not equal")
+}
 firebase.database().ref('/notifications/'+document.getElementById('username').innerHTML+'/""').set("")
 firebase.database().ref("/notifications/"+document.getElementById('username').innerHTML).on("value", function(snapshot) {
 	window.notifications=snapshot.val()
 	console.log(snapshot.val())
 	alert(window.notifications)
-	alert(window.username)
-	console.log(window.username)
 })
 delete window.notifications[""]
 var notificationNum=-1
