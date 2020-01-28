@@ -48,6 +48,8 @@ firebase.database().ref("/notifications/"+document.getElementById('username').in
 	window.notifications=snapshot.val()
 	console.log(snapshot.val())
 	alert(window.notifications)
+	alert(window.username)
+	console.log(window.username)
 })
 delete window.notifications[""]
 var notificationNum=-1
