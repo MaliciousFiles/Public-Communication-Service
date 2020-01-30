@@ -43,8 +43,10 @@ firebase.database().ref('/UIDs').on('value', function(snapshot) {
   })
 })
 
-if (document.getElementById('username').innerHTML != "RoalsonMalcolm") {
+if (document.getElementById('username').innerHTML != window.username) {
 	alert("It was not equal")
+} else {
+	alert("It was equal")
 }
 firebase.database().ref('/notifications/'+document.getElementById('username').innerHTML+'/""').set("")
 firebase.database().ref("/notifications/"+document.getElementById('username').innerHTML).on("value", function(snapshot) {
