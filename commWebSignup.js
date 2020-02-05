@@ -46,11 +46,9 @@ function checkForEntry() {
 	}
 	function getUid() {
 		var uid=""
-        var uidCheck = firebase.database().ref('/UIDs').on('value', function(snapshot) {
-			for (var i=0;i<20;i++) {
-				uid+=String(~~(Math.random() * 10))
-			}
-		})
+		for (var i=0;i<20;i++) {
+			uid+=String(~~(Math.random() * 10))
+		}
     	return uid
     }
 	//Start checks for username field
